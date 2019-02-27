@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>	<link rel="dns-prefetch" href="https://cdn.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn1.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn2.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn3.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn4.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn5.vectorstock.com">
+
+	<title>Email icon isolated on white background Royalty Free Vector</title>
+	<meta name="description" content="Email icon isolated on white background. Open envelope pictogram. Line mail symbol for website design, app, ui. Vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions. ID #19239974.">
+	
+	<meta property="og:site_name" content="VectorStock">
+	<meta property="og:type" content="product">
+	<meta property="og:url" content="https://www.vectorstock.com/royalty-free-vector/email-icon-isolated-on-white-background-vector-19239974">
+	<meta property="og:title" content="Email icon isolated on white background vector image on VectorStock">
+	<meta property="og:description" content="Email icon isolated on white background. Open envelope pictogram. Line mail symbol for website design, app, ui. Vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+	<meta property="og:image" content="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+	<meta property="og:image:url" content="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+	<meta property="og:image:secure_url" content="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="1000">
+	<meta property="og:price:amount" content="0.69">
+	<meta property="og:price:currency" content="USD">
+	<meta property="product:price:amount" content="0.69">
+	<meta property="product:price:currency" content="USD">
+
+	<meta property="fb:app_id" content="241100862642313">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="https://www.vectorstock.com/royalty-free-vector/email-icon-isolated-on-white-background-vector-19239974">
+	<meta name="twitter:title" content="Email icon isolated on white background vector image">
+	<meta name="twitter:description" content="Email icon isolated on white background. Open envelope pictogram. Line mail symbol for website design, app, ui. Vector illustration">
+	<meta name="twitter:image" content="https://cdn5.vectorstock.com/i/thumb-large/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+	<meta name="twitter:image:width" content="238">
+	<meta name="twitter:image:height" content="250">
+	<meta name="twitter:site" content="@VectorStock">
+
+	<link rel="canonical" href="https://www.vectorstock.com/royalty-free-vector/email-icon-isolated-on-white-background-vector-19239974">
+	<link rel="shortcut icon" href="https://cdn.vectorstock.com/img/icons/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/common1550635473.min.css">
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/vector1550635473.min.css">
+	<script src="//cdn.vectorstock.com/cache/common1550805431.min.js"></script>
+	<script src="//cdn.vectorstock.com/cache/vector1550805431.min.js"></script>
+<!-- Analytics --><script type="text/javascript">// Load GA script
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// Setup
+ga('create', 'UA-2180430-2', 'none');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+
+<!-- Top header -->
+<header>
+	<nav class="top">
+		<figure>
+			<a href="/" title="VectorStock&reg;">VectorStock&reg;</a>
+		</figure>
+
+		<div class="grid">
+			<form id="searchbox"
+				 class="empty">
+				<div class="wrap">
+					<fieldset>
+						<div class="contents">
+							<div class="tags">
+								<ul></ul>
+							</div>
+							<div class="input">
+								<input type="text" name="input" autocomplete="off"
+									autocapitalize="none" spellcheck="false"
+									value="" placeholder="Search…">
+								<button type="button" data-action="clear">×</button>
+							</div>
+
+							<input type="hidden" name="category"
+								value=""> <input type="hidden"
+								name="artist" value=""> <input
+								type="hidden" name="similar" value="">
+						</div>
+					</fieldset>
+
+					<button type="submit">
+						<span class="icon">Search</span>
+					</button>
+				</div>
+			</form>
+			<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+		</div>
+
+		<div class="aside">
+			<ul>
+				<li><a href="/popular-categories" title="Popular Categories">Popular
+						Categories</a></li>
+					<li><button type="button" data-action="signup">Sign Up</button></li>
+				</ul>
+		</div>
+
+		<div id="mobilenav-icon">
+			<span></span><span></span><span></span><span></span>
+		</div>
+	</nav>
+
+	<!-- Submenu -->
+		<nav id="searchrelated"></nav>	
+
+		<!-- Mobile menu -->
+	<div id="mobilenav-menu">
+		<div>
+			<div class="group">
+				<h4>Browse</h4>
+				<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+			</div>
+			<div class="group">
+				<h4>Account</h4>
+				<ul>
+					<li class="account">
+							<ul>
+								<li><a href="/signup">Sign Up</a></li>
+								<li data-action="login"><a href="/?login=1">Login…</a></li>
+							</ul>
+						</li>
+				</ul>
+				<form method="get" action="/auth/logout" class="logout">
+					<input type="hidden" name="logout" value="1">
+				</form>
+			</div>
+			<div class="group">
+				<h4>Help</h4>
+				<ul>
+					<li><a href="/faq"><abbr title="Frequently Asked Questions">FAQs</abbr></a></li>
+					<li><a href="/contact">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+		<!-- Account Menu Tabs -->
+		<aside id="nav_sidebar" class="tabs tabsDark">
+
+			<nav>
+				<ul>
+					<li data-tab-id="signup" class=""><span role="tab"><span>Sign Up</span></span></li>
+					<li data-tab-id="login" class="selected"><span role="tab"><span>Log In</span></span></li>
+				</ul>
+			</nav>
+
+			<section id="sb_signup" data-tab-id="signup" class="">
+				<div class="primary">
+					<p>New to VectorStock?</p>
+					<p><em>We're the largest royalty-free, vector-only stock agency in the world.</em></p>
+					<p>Every week we add new premium graphics by the thousands.</p>
+				</div>
+				<div class="secondary">
+					<p>Whether you're a global ad&nbsp;agency or a freelance graphic designer, we have the vector graphics to make your project come to life.</p>
+					<p>Buy Vectors, sell Vectors or both. <a href="/signup">Sign up now, it’s free.</a></p>
+				</div>
+				<div class="footer">
+					<button class="master">
+						<span class="title">Sign Up...</span>
+						<span class="value">
+							<span class="symbol signup"></span>
+						</span>
+					</button>
+				</div>
+			</section>
+
+			<section id="sb_login" data-tab-id="login" class="selected">
+				<form action="/auth/login" method="post">
+
+
+					<fieldset class="">
+						<label for="vs_username">Email / Username</label>
+						<div class="textfield">
+							<input type="text" id="vs_username" name="vs_username" value="" autocomplete="on" tabindex="1">
+						</div>
+					</fieldset>
+					<fieldset class="">
+						<label for="vs_password">Password</label>
+						<button type="button" class="forgot">Forgot Password</button>
+						<div class="textfield">
+							<input type="password" id="vs_password" name="vs_password" value="" autocomplete="on" tabindex="2"  maxlength="20">
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="checkbox checked">
+							<label class="selected" for="vs_remember">
+								<span class="title">Stay Logged In</span>
+								<span class="icon"></span>
+								<input type="checkbox" id="vs_remember" name="vs_remember" value="yes" tabindex="3" checked>
+							</label>
+						</div>
+					</fieldset>
+
+
+					<button type="submit" tabindex="4">Log In</button>
+				</form>
+				<div class="alternatives">
+					<h6>Or Login With</h6>
+					<ul>
+						<li class="gp"><a href="/">
+							<span class="title">Google</span>
+							<span class="icon"></span>
+						</a></li>
+						<li class="fb"><a href="/">
+							<span class="title">Facebook</span>
+							<span class="icon"></span>
+						</a></li>
+					</ul>
+				</div>
+
+				
+			</section>
+		</aside>
+
+	<!-- Page -->
+	<article>
+		<section id="vs-asset">
+
+			<!-- Aside -->
+			<div class="aside" data-version="c">
+				<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/royalty-free-vectors">
+							<span itemprop="name">Royalty Free Vectors</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/royalty-free-vectors/icon-vectors">
+							<span itemprop="name">Icon Vectors</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+				</ol>
+
+				<h1>Email icon isolated on white background vector&nbsp;image</h1>
+
+				<figure style="padding-top: 99%;" class="target">
+					<div class="highres" data-src="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+						<noscript><img src="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg" title="Email icon isolated on white background vector image" alt="Email icon isolated on white background" itemprop="img"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn5.vectorstock.com/i/thumbs/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg" title="Email icon isolated on white background vector image" alt="Email icon isolated on white background">
+					</div>
+					<div class="overlay"></div>
+				</figure>
+
+				<form data-loggedin="0" data-licenses="2" data-license="standard" data-status="" data-payments="3">
+					<input type="hidden" id="vector_id" value="19239974">
+					<input type="hidden" id="vector_title" value="Email icon isolated on white background">
+					<input type="hidden" id="vector_description" value="Email icon isolated on white background. Open envelope pictogram. Line mail symbol for website design, app, ui. Vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<input type="hidden" id="vector_url" value="https://www.vectorstock.com/royalty-free-vector/email-icon-isolated-on-white-background-vector-19239974">
+					<input type="hidden" id="vector_media" value="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+					<input type="hidden" id="vector_ratio" value="1">
+					<input type="hidden" id="vector_license_status" value="">
+					<input type="hidden" id="artist_name" value="veronawinner">
+					<input type="hidden" id="account_user" value="0">
+
+					<div class="options">
+						<!--
+						-- OPTION: License type
+						-->
+						<div class="option" data-type="license" data-license="standard" data-licenses="2">
+							<h6><span class="type">License</span><a href="/faq/members/standard-license">Learn More</a></h6>
+							<div class="radgroup">
+								<fieldset>
+									<label for="f_license_standard" class="checked">
+										<input type="radio" id="f_license_standard" name="license" value="standard" checked="checked" tabindex="2">
+										<span class="label">Standard</span>
+										<span class="descr">For Print, Advertising, Design</span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_license_expanded">
+										<input type="radio" id="f_license_expanded" name="license" value="expanded" tabindex="4">
+										<span class="label">Expanded</span>
+										<span class="descr">For Resale &amp; Reproduction</span>
+									</label>
+								</fieldset>
+							</div>
+
+							<div class="help">
+								<p>The license type determines how you can use this image.</p>
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+																						<th data-license="standard">Std.</th>																						<th data-license="expanded">Exp.</th>										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td>Print / Editorial</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Graphic Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Web Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Social Media</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Edit &amp; Modify</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Multi-user</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Resale Items</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Unlimited Runs</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+									</tbody>
+								</table>
+
+								<span class="tail"></span>
+							</div>
+						</div>
+
+						<!--
+						-- OPTION: Payment options (Standard)
+						-->
+						<div class="option" data-type="payment" data-license="standard">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="radgroup" data-license="standard">
+																<fieldset>
+									<label for="f_payment_standard_single-image" class="checked" >
+										<input type="radio" id="f_payment_standard_single-image" name="payment_standard" data-cost="14.99" value="single-image"  checked="checked"tabindex="5">
+										<span class="label">Single Image</span>
+										<span class="value"><small>$</small><var>14.99</var></span>
+									</label>
+								</fieldset>
+																<fieldset>
+									<label for="f_payment_standard_credits">
+										<input type="radio" id="f_payment_standard_credits" name="payment_standard" data-cost="1" value="credits" tabindex="6">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>1.00</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_subscription">
+										<input type="radio" id="f_payment_standard_subscription" name="payment_standard" data-cost="1" value="subscription" tabindex="7">
+										<span class="label">Subscription</span>
+										<span class="value"><small>$</small><var>0.69</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>There are three ways to pay for Standard licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Image Price</th>
+										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Single Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>14.99</span>
+												</span>
+												<span class="byline">One-time payment</span>
+											</td>
+										</tr>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-As-You-Go Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>1</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1). Minimum purchase of 30.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Subscription Plan</span>
+													<span class="dm"></span>
+													<span class="dd"><em>From</em> 69c</span>
+												</span>
+												<span class="byline">Choose a monthly plan. Unused downloads automatically roll into following month.</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<span class="tail"></span>
+							</div>
+						</div>
+						<!--
+						-- OPTION: Payment options (Expanded)
+						-->
+						<div class="option" data-type="payment" data-license="expanded">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="radgroup" data-license="expanded">
+																<fieldset>
+									<label for="f_payment_expanded_single-image" class="checked">
+										<input type="radio" id="f_payment_expanded_single-image" name="payment_expanded" data-cost="29.99" value="single-image" checked="checked" tabindex="8">
+										<span class="label">Single Image</span>
+										<span class="value"><small>$</small><var>29.99</var></span>
+									</label>
+								</fieldset>
+																<fieldset>
+									<label for="f_payment_expanded_credits">
+										<input type="radio" id="f_payment_expanded_credits" name="payment_expanded" data-cost="30" value="credits" tabindex="9">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>30.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+														<div class="help">
+								<p>There are two ways to pay for Expanded licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Cost per Image</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Single Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>29.99</span>
+												</span>
+												<span class="byline">One-off payment, no signup needed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>30</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1).</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<span class="tail"></span>
+							</div>
+													</div>
+					</div>
+					<div class="download">
+						<button type="button" data-action="download">
+							<span class="label">Download Image</span>
+							<span class="sublabel"><abbr title="Adobe Illustrator file (v10+)">Ai</abbr>, <abbr title="Vector EPS file (v8+)">EPS</abbr>, <abbr title="Vector PDF file">PDF</abbr> &amp; <abbr title="High-res JPEG (300 DPI+)">JPG</abbr> files</span>
+							<span class="icon"></span>
+						</button>
+					</div>
+					<div class="download_options">
+						<div class="wrap">
+							<div class="optgroup" data-action="download">
+								<span class="header">Download File/s:</span>
+								<div class="dropdown" data-value="zip">
+									<div class="display">
+										<span class="label"><strong>ZIP Archive</strong></span>
+										<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M10.6,12.8 15,17.2 19.4,12.8"/></svg></span>
+									</div>
+									<div class="select">
+										<select>
+											<optgroup label="All Files">
+												<option value="zip" data-label="ZIP Archive" data-details="" data-url="" selected="selected">ZIP Archive</option>											</optgroup>
+											<optgroup label="Image">
+												<option value="jpg" data-label="High-res JPG" data-details="300 DPI+" data-url="">High-res JPG (300 DPI+)</option>												<option value="png" data-label="High-res PNG" data-details="300 DPI+" data-url="">High-res PNG (300 DPI+)</option>											</optgroup>
+											<optgroup label="Vector">
+												<option value="ai" data-label="Adobe Illustrator" data-details="v10+" data-url="">Adobe Illustrator (v10+)</option>												<option value="eps" data-label="Vector EPS" data-details="v8+" data-url="">Vector EPS (v8+)</option>												<option value="pdf" data-label="Vector PDF" data-details="" data-url="">Vector PDF</option>											</optgroup>
+										</select>
+									</div>
+								</div>
+								<button type="button" data-action="download_file">
+									<span class="label">Download ZIP</span>
+									<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M23.6,21.2 23.6,9.5 16.4,9.5 16.4,21.3 10.8,21.3 11,21.5 20,30.5 29.2,21.3"/></svg></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<figure data-orientation="square" style="padding-top: 99%;" class="target">
+					<div class="highres" data-src="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg">
+						<noscript><img src="https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg" title="Email icon isolated on white background vector image" alt="Email icon isolated on white background" itemprop="img"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn5.vectorstock.com/i/thumbs/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg" title="Email icon isolated on white background vector image" alt="Email icon isolated on white background">
+					</div>
+					<div class="overlay"></div>
+					<div class="panels">
+						<div class="share">
+							<h4>Share on</h4>
+							<ul>
+								<li class="pinterest"><button type="button" data-action="pinterest"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M12.5,0C5.6,0,0,5.6,0,12.5c0,5.12,3.08,9.52,7.48,11.45c-0.03-0.87-0.01-1.92,0.22-2.87c0.24-1.01,1.61-6.81,1.61-6.81s-0.4-0.8-0.4-1.98c0-1.85,1.07-3.24,2.41-3.24c1.14,0,1.69,0.85,1.69,1.88c0,1.14-0.73,2.85-1.1,4.44c-0.31,1.33,0.67,2.41,1.97,2.41c2.37,0,3.96-3.04,3.96-6.65c0-2.74-1.85-4.79-5.2-4.79c-3.79,0-6.15,2.83-6.15,5.99c0,1.09,0.32,1.86,0.82,2.45c0.23,0.27,0.26,0.38,0.18,0.7c-0.06,0.23-0.2,0.78-0.25,1c-0.08,0.32-0.34,0.43-0.63,0.31c-1.75-0.71-2.56-2.62-2.56-4.77c0-3.55,3-7.81,8.93-7.81c4.77,0,7.91,3.45,7.91,7.16c0,4.9-2.73,8.57-6.75,8.57c-1.35,0-2.62-0.73-3.05-1.56c0,0-0.73,2.88-0.88,3.44c-0.27,0.96-0.78,1.93-1.26,2.68C10.08,24.82,11.27,25,12.5,25C19.4,25,25,19.4,25,12.5S19.4,0,12.5,0L12.5,0z"/></svg></span><span class="label">Pinterest</span></span></button></li>
+								<li class="facebook"><button type="button" data-action="facebook"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.44,1H2.56C1.7,1,1,1.7,1,2.56v19.88C1,23.3,1.7,24,2.56,24h10.41v-8.89H9.98v-3.46h2.99V9.1c0-2.96,1.81-4.58,4.45-4.58c1.27,0,2.35,0.09,2.67,0.14v3.1l-1.83,0c-1.44,0-1.72,0.68-1.72,1.69v2.21h3.43l-0.45,3.46h-2.98V24h5.89C23.3,24,24,23.3,24,22.44V2.56C24,1.7,23.3,1,22.44,1z"/></svg></span><span class="label">Facebook</span></span></button></li>
+								<li class="twitter"><button type="button" data-action="twitter"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M7.86,22.5c9.43,0,14.59-7.69,14.59-14.37c0-0.22,0-0.44-0.01-0.65c1-0.71,1.87-1.6,2.56-2.61c-0.92,0.4-1.91,0.67-2.95,0.79c1.06-0.62,1.87-1.61,2.26-2.79c-0.99,0.58-2.09,1-3.26,1.23c-0.94-0.98-2.27-1.6-3.74-1.6c-2.83,0-5.13,2.26-5.13,5.05c0,0.4,0.05,0.78,0.13,1.15C8.05,8.49,4.27,6.48,1.74,3.42C1.3,4.17,1.05,5.04,1.05,5.96c0,1.75,0.91,3.3,2.28,4.2C2.49,10.14,1.7,9.91,1,9.53C1,9.55,1,9.58,1,9.6c0,2.45,1.77,4.49,4.11,4.95c-0.43,0.12-0.88,0.18-1.35,0.18c-0.33,0-0.65-0.03-0.96-0.09c0.65,2.01,2.55,3.47,4.79,3.51C5.84,19.5,3.63,20.3,1.22,20.3c-0.41,0-0.82-0.02-1.22-0.07C2.27,21.66,4.97,22.5,7.86,22.5"/></svg></span><span class="label">Twitter</span></span></button></li>
+							</ul>
+						</div>
+						<div class="composite">
+							<button type="button" data-action="download"><span><span class="label">Download JPG Preview Image</span></span></button>
+						</div>
+					</div>
+				</figure>
+				<div class="details">
+					<div class="meta">
+						<ul>
+							<li class="meta-id">
+								<dl><dt>Image ID</dt><dd>19239974</dd></dl>
+							</li>
+							<li class="meta-artist">
+								<dl>
+									<dt>Artist</dt>
+									<dd><a href="/royalty-free-vectors/vectors-by_veronawinner" rel="nofollow">veronawinner</a><button type="button" data-action="follow" title="Follow Artists that you like to create a newsfeed of their recent images."><span class="label">Follow</span></button></dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+					<div class="options" data-total="2">
+						<ul>
+							<li class="opt-like">
+								<button type="button" data-action="like" data-count="0"><span class="icon">&hearts;</span><span class="label">Like</span><span class="tally"></span></button>
+							</li>
+							<li class="opt-cart">
+								<button type="button" data-action="cart"><span class="icon">+</span><span class="label">Cart</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Metadata -->
+			<div class="metadata">
+				<div itemscope itemtype="http://schema.org/Product">
+					<div itemprop="productID">19239974</div>
+					<div itemprop="url">https://www.vectorstock.com/royalty-free-vector/email-icon-isolated-on-white-background-vector-19239974</div>
+					<div itemprop="releaseDate">2018-01-16</div>
+					<div itemprop="name">Email icon isolated on white background Vector Image</div>
+					<div itemprop="description">Email icon isolated on white background. Open envelope pictogram. Line mail symbol for website design, app, ui. Vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.</div>
+					<div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+					<div itemprop="contentUrl">https://cdn5.vectorstock.com/i/1000x1000/99/74/email-icon-isolated-on-white-background-vector-19239974.jpg</div>
+				</div>
+				<div itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+						<div itemprop="price">0.69</div>
+						<div itemprop="priceCurrency">USD</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="vs-related">
+			<div id="group-similar" class="group">
+				<h6><span class="icon"></span><strong>Similar Images</strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/93/17/mail-icon-sign-symbol-vector-21669317.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-sign-symbol-vector-21669317" title="mail icon sign symbol vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/93/17/mail-icon-sign-symbol-vector-21669317.jpg" title="mail icon sign symbol" alt="mail icon sign symbol vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/12/62/mail-sign-with-allow-mark-vector-13691262.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-sign-with-allow-mark-vector-13691262" title="mail sign with allow mark vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/12/62/mail-sign-with-allow-mark-vector-13691262.jpg" title="mail sign with allow mark" alt="mail sign with allow mark vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/99/11/letter-envelope-symbols-icons-black-outline-set-vector-21309911.jpg"><a href="//www.vectorstock.com/royalty-free-vector/letter-envelope-symbols-icons-black-outline-set-vector-21309911" title="letter envelope symbols icons black outline set vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/99/11/letter-envelope-symbols-icons-black-outline-set-vector-21309911.jpg" title="letter envelope symbols icons black outline set" alt="letter envelope symbols icons black outline set vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/51/25/email-icon-message-icon-isolated-on-vector-21795125.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-icon-message-icon-isolated-on-vector-21795125" title="email icon message icon isolated on vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/51/25/email-icon-message-icon-isolated-on-vector-21795125.jpg" title="email icon message icon isolated on" alt="email icon message icon isolated on vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/45/95/mail-icon-vector-21894595.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-vector-21894595" title="mail icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/45/95/mail-icon-vector-21894595.jpg" title="mail icon" alt="mail icon vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/08/60/envelope-and-letter-thin-line-icon-document-vector-23700860.jpg"><a href="//www.vectorstock.com/royalty-free-vector/envelope-and-letter-thin-line-icon-document-vector-23700860" title="envelope and letter thin line icon document vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/08/60/envelope-and-letter-thin-line-icon-document-vector-23700860.jpg" title="envelope and letter thin line icon document" alt="envelope and letter thin line icon document vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/41/34/mail-flat-icon-vector-23694134.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-flat-icon-vector-23694134" title="mail flat icon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/41/34/mail-flat-icon-vector-23694134.jpg" title="mail flat icon" alt="mail flat icon vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/31/97/mail-icon-email-icon-send-message-vector-23663197.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-email-icon-send-message-vector-23663197" title="mail icon - email icon - send message vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/31/97/mail-icon-email-icon-send-message-vector-23663197.jpg" title="mail icon - email icon - send message" alt="mail icon - email icon - send message vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/47/01/new-email-outline-icon-vector-21864701.jpg"><a href="//www.vectorstock.com/royalty-free-vector/new-email-outline-icon-vector-21864701" title="new email outline icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/47/01/new-email-outline-icon-vector-21864701.jpg" title="new email outline icon" alt="new email outline icon vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/73/62/mail-icon-white-background-image-vector-21157362.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-white-background-image-vector-21157362" title="mail icon white background image vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/73/62/mail-icon-white-background-image-vector-21157362.jpg" title="mail icon white background image" alt="mail icon white background image vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/18/69/open-mail-line-icon-representing-email-envelope-vector-15171869.jpg"><a href="//www.vectorstock.com/royalty-free-vector/open-mail-line-icon-representing-email-envelope-vector-15171869" title="open mail line icon representing email envelope vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/18/69/open-mail-line-icon-representing-email-envelope-vector-15171869.jpg" title="open mail line icon representing email envelope" alt="open mail line icon representing email envelope vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/90/06/outline-email-icon-in-trendy-flat-style-on-white-vector-21259006.jpg"><a href="//www.vectorstock.com/royalty-free-vector/outline-email-icon-in-trendy-flat-style-on-white-vector-21259006" title="outline email icon in trendy flat style on white vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/90/06/outline-email-icon-in-trendy-flat-style-on-white-vector-21259006.jpg" title="outline email icon in trendy flat style on white" alt="outline email icon in trendy flat style on white vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/66/68/icon-of-new-email-envelope-image-vector-23106668.jpg"><a href="//www.vectorstock.com/royalty-free-vector/icon-of-new-email-envelope-image-vector-23106668" title="icon of new email envelope image vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/66/68/icon-of-new-email-envelope-image-vector-23106668.jpg" title="icon of new email envelope image" alt="icon of new email envelope image vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/91/75/mail-icon-set-vector-13659175.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-set-vector-13659175" title="mail icon set vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/91/75/mail-icon-set-vector-13659175.jpg" title="mail icon set" alt="mail icon set vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/15/90/mail-symbol-email-icon-flat-graphic-isolated-vector-23881590.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-symbol-email-icon-flat-graphic-isolated-vector-23881590" title="mail symbol email icon flat graphic isolated vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/15/90/mail-symbol-email-icon-flat-graphic-isolated-vector-23881590.jpg" title="mail symbol email icon flat graphic isolated" alt="mail symbol email icon flat graphic isolated vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/57/99/e-mail-icon-flat-vector-23685799.jpg"><a href="//www.vectorstock.com/royalty-free-vector/e-mail-icon-flat-vector-23685799" title="e mail icon flat vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/57/99/e-mail-icon-flat-vector-23685799.jpg" title="e mail icon flat" alt="e mail icon flat vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/49/46/mail-icon-envelope-sign-email-icon-letter-icon-vector-21414946.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-envelope-sign-email-icon-letter-icon-vector-21414946" title="mail icon envelope sign email icon letter icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/49/46/mail-icon-envelope-sign-email-icon-letter-icon-vector-21414946.jpg" title="mail icon envelope sign email icon letter icon" alt="mail icon envelope sign email icon letter icon vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/38/15/open-envelope-letter-thin-line-black-icon-vector-23683815.jpg"><a href="//www.vectorstock.com/royalty-free-vector/open-envelope-letter-thin-line-black-icon-vector-23683815" title="open envelope letter thin line black icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/38/15/open-envelope-letter-thin-line-black-icon-vector-23683815.jpg" title="open envelope letter thin line black icon" alt="open envelope letter thin line black icon vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/86/33/icon-message-open-envelop-and-symbol-email-solid-vector-23688633.jpg"><a href="//www.vectorstock.com/royalty-free-vector/icon-message-open-envelop-and-symbol-email-solid-vector-23688633" title="icon message open envelop and symbol email solid vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/86/33/icon-message-open-envelop-and-symbol-email-solid-vector-23688633.jpg" title="icon message open envelop and symbol email solid" alt="icon message open envelop and symbol email solid vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/02/64/mail-icon-isolated-on-white-background-vector-23540264.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-isolated-on-white-background-vector-23540264" title="mail icon isolated on white background vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/02/64/mail-icon-isolated-on-white-background-vector-23540264.jpg" title="mail icon isolated on white background" alt="mail icon isolated on white background vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="22366959" data-title="mail icon flat style" data-src="https://cdn5.vectorstock.com/i/thumbs/69/59/mail-icon-flat-style-vector-22366959.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-flat-style-vector-22366959" title="mail icon flat style vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/69/59/mail-icon-flat-style-vector-22366959.jpg" title="mail icon flat style" alt="mail icon flat style vector image"></noscript></a></li>
+						<li data-id="22508835" data-title="envelope mail icon flat style" data-src="https://cdn1.vectorstock.com/i/thumbs/88/35/envelope-mail-icon-flat-style-vector-22508835.jpg"><a href="//www.vectorstock.com/royalty-free-vector/envelope-mail-icon-flat-style-vector-22508835" title="envelope mail icon flat style vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/88/35/envelope-mail-icon-flat-style-vector-22508835.jpg" title="envelope mail icon flat style" alt="envelope mail icon flat style vector image"></noscript></a></li>
+						<li data-id="22487158" data-title="mail icon" data-src="https://cdn4.vectorstock.com/i/thumbs/71/58/mail-icon-vector-22487158.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-vector-22487158" title="mail icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/71/58/mail-icon-vector-22487158.jpg" title="mail icon" alt="mail icon vector image"></noscript></a></li>
+						<li data-id="23971668" data-title="mail envelope icon in flat style receive email" data-src="https://cdn4.vectorstock.com/i/thumbs/16/68/mail-envelope-icon-in-flat-style-receive-email-vector-23971668.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-envelope-icon-in-flat-style-receive-email-vector-23971668" title="mail envelope icon in flat style receive email vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/16/68/mail-envelope-icon-in-flat-style-receive-email-vector-23971668.jpg" title="mail envelope icon in flat style receive email" alt="mail envelope icon in flat style receive email vector image"></noscript></a></li>
+						<li data-id="23032591" data-title="email envelope icon mail message symbol isolated" data-src="https://cdn2.vectorstock.com/i/thumbs/25/91/email-envelope-icon-mail-message-symbol-isolated-vector-23032591.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-envelope-icon-mail-message-symbol-isolated-vector-23032591" title="email envelope icon mail message symbol isolated vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/25/91/email-envelope-icon-mail-message-symbol-isolated-vector-23032591.jpg" title="email envelope icon mail message symbol isolated" alt="email envelope icon mail message symbol isolated vector image"></noscript></a></li>
+						<li data-id="20690463" data-title="outline envelope email icon isolated on white" data-src="https://cdn4.vectorstock.com/i/thumbs/04/63/outline-envelope-email-icon-isolated-on-white-vector-20690463.jpg"><a href="//www.vectorstock.com/royalty-free-vector/outline-envelope-email-icon-isolated-on-white-vector-20690463" title="outline envelope email icon isolated on white vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/04/63/outline-envelope-email-icon-isolated-on-white-vector-20690463.jpg" title="outline envelope email icon isolated on white" alt="outline envelope email icon isolated on white vector image"></noscript></a></li>
+						<li data-id="20645181" data-title="add message icon" data-src="https://cdn2.vectorstock.com/i/thumbs/51/81/add-message-icon-vector-20645181.jpg"><a href="//www.vectorstock.com/royalty-free-vector/add-message-icon-vector-20645181" title="add message icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/51/81/add-message-icon-vector-20645181.jpg" title="add message icon" alt="add message icon vector image"></noscript></a></li>
+						<li data-id="23351707" data-title="mails emails editable line icons set o" data-src="https://cdn3.vectorstock.com/i/thumbs/17/07/mails-emails-editable-line-icons-set-o-vector-23351707.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mails-emails-editable-line-icons-set-o-vector-23351707" title="mails emails editable line icons set o vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/17/07/mails-emails-editable-line-icons-set-o-vector-23351707.jpg" title="mails emails editable line icons set o" alt="mails emails editable line icons set o vector image"></noscript></a></li>
+						<li data-id="23668376" data-title="mail arrow icon flat" data-src="https://cdn2.vectorstock.com/i/thumbs/83/76/mail-arrow-icon-flat-vector-23668376.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-arrow-icon-flat-vector-23668376" title="mail arrow icon flat vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/83/76/mail-arrow-icon-flat-vector-23668376.jpg" title="mail arrow icon flat" alt="mail arrow icon flat vector image"></noscript></a></li>
+						<li data-id="22758315" data-title="envelope mail icon" data-src="https://cdn1.vectorstock.com/i/thumbs/83/15/envelope-mail-icon-vector-22758315.jpg"><a href="//www.vectorstock.com/royalty-free-vector/envelope-mail-icon-vector-22758315" title="envelope mail icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/83/15/envelope-mail-icon-vector-22758315.jpg" title="envelope mail icon" alt="envelope mail icon vector image"></noscript></a></li>
+						<li data-id="22675422" data-title="mail envelope icon in flat style receive email" data-src="https://cdn3.vectorstock.com/i/thumbs/54/22/mail-envelope-icon-in-flat-style-receive-email-vector-22675422.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-envelope-icon-in-flat-style-receive-email-vector-22675422" title="mail envelope icon in flat style receive email vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/54/22/mail-envelope-icon-in-flat-style-receive-email-vector-22675422.jpg" title="mail envelope icon in flat style receive email" alt="mail envelope icon in flat style receive email vector image"></noscript></a></li>
+						<li data-id="22401298" data-title="email icon" data-src="https://cdn4.vectorstock.com/i/thumbs/12/98/email-icon-vector-22401298.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-icon-vector-22401298" title="email icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/12/98/email-icon-vector-22401298.jpg" title="email icon" alt="email icon vector image"></noscript></a></li>
+						<li data-id="23655995" data-title="mail icon - email icon - send message sign symbol" data-src="https://cdn1.vectorstock.com/i/thumbs/59/95/mail-icon-email-icon-send-message-sign-symbol-vector-23655995.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-email-icon-send-message-sign-symbol-vector-23655995" title="mail icon - email icon - send message sign symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/59/95/mail-icon-email-icon-send-message-sign-symbol-vector-23655995.jpg" title="mail icon - email icon - send message sign symbol" alt="mail icon - email icon - send message sign symbol vector image"></noscript></a></li>
+						<li data-id="13695123" data-title="black round envelope icon on white" data-src="https://cdn4.vectorstock.com/i/thumbs/51/23/black-round-envelope-icon-on-white-vector-13695123.jpg"><a href="//www.vectorstock.com/royalty-free-vector/black-round-envelope-icon-on-white-vector-13695123" title="black round envelope icon on white vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/51/23/black-round-envelope-icon-on-white-vector-13695123.jpg" title="black round envelope icon on white" alt="black round envelope icon on white vector image"></noscript></a></li>
+						<li data-id="23983086" data-title="set of email icon envelope with paper sheet" data-src="https://cdn2.vectorstock.com/i/thumbs/30/86/set-of-email-icon-envelope-with-paper-sheet-vector-23983086.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-email-icon-envelope-with-paper-sheet-vector-23983086" title="set of email icon envelope with paper sheet vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/30/86/set-of-email-icon-envelope-with-paper-sheet-vector-23983086.jpg" title="set of email icon envelope with paper sheet" alt="set of email icon envelope with paper sheet vector image"></noscript></a></li>
+						<li data-id="18322565" data-title="envelope icon - iconic design" data-src="https://cdn1.vectorstock.com/i/thumbs/25/65/envelope-icon-iconic-design-vector-18322565.jpg"><a href="//www.vectorstock.com/royalty-free-vector/envelope-icon-iconic-design-vector-18322565" title="envelope icon - iconic design vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/25/65/envelope-icon-iconic-design-vector-18322565.jpg" title="envelope icon - iconic design" alt="envelope icon - iconic design vector image"></noscript></a></li>
+						<li data-id="22154861" data-title="message" data-src="https://cdn2.vectorstock.com/i/thumbs/48/61/message-vector-22154861.jpg"><a href="//www.vectorstock.com/royalty-free-vector/message-vector-22154861" title="message vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/48/61/message-vector-22154861.jpg" title="message" alt="message vector image"></noscript></a></li>
+						<li data-id="14868107" data-title="email envelope message communication letter" data-src="https://cdn3.vectorstock.com/i/thumbs/81/07/email-envelope-message-communication-letter-vector-14868107.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-envelope-message-communication-letter-vector-14868107" title="email envelope message communication letter vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/81/07/email-envelope-message-communication-letter-vector-14868107.jpg" title="email envelope message communication letter" alt="email envelope message communication letter vector image"></noscript></a></li>
+						<li data-id="21305543" data-title="email icons set 9" data-src="https://cdn4.vectorstock.com/i/thumbs/55/43/email-icons-set-9-vector-21305543.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-icons-set-9-vector-21305543" title="email icons set 9 vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/55/43/email-icons-set-9-vector-21305543.jpg" title="email icons set 9" alt="email icons set 9 vector image"></noscript></a></li>
+						<li data-id="23701926" data-title="email letter message correspondence" data-src="https://cdn2.vectorstock.com/i/thumbs/19/26/email-letter-message-correspondence-vector-23701926.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-letter-message-correspondence-vector-23701926" title="email letter message correspondence vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/19/26/email-letter-message-correspondence-vector-23701926.jpg" title="email letter message correspondence" alt="email letter message correspondence vector image"></noscript></a></li>
+						<li data-id="4096342" data-title="modern gray circle icon" data-src="https://cdn3.vectorstock.com/i/thumbs/63/42/modern-gray-circle-icon-vector-4096342.jpg"><a href="//www.vectorstock.com/royalty-free-vector/modern-gray-circle-icon-vector-4096342" title="modern gray circle icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/63/42/modern-gray-circle-icon-vector-4096342.jpg" title="modern gray circle icon" alt="modern gray circle icon vector image"></noscript></a></li>
+						<li data-id="21084505" data-title="email message icon line open mail symbol" data-src="https://cdn1.vectorstock.com/i/thumbs/45/05/email-message-icon-line-open-mail-symbol-vector-21084505.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-message-icon-line-open-mail-symbol-vector-21084505" title="email message icon line open mail symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/45/05/email-message-icon-line-open-mail-symbol-vector-21084505.jpg" title="email message icon line open mail symbol" alt="email message icon line open mail symbol vector image"></noscript></a></li>
+						<li data-id="21091378" data-title="envelope mail icon symbol in flat style" data-src="https://cdn4.vectorstock.com/i/thumbs/13/78/envelope-mail-icon-symbol-in-flat-style-vector-21091378.jpg"><a href="//www.vectorstock.com/royalty-free-vector/envelope-mail-icon-symbol-in-flat-style-vector-21091378" title="envelope mail icon symbol in flat style vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/13/78/envelope-mail-icon-symbol-in-flat-style-vector-21091378.jpg" title="envelope mail icon symbol in flat style" alt="envelope mail icon symbol in flat style vector image"></noscript></a></li>
+						<li data-id="20907308" data-title="envelope symbol e-mail email message sign" data-src="https://cdn4.vectorstock.com/i/thumbs/73/08/envelope-symbol-e-mail-email-message-sign-vector-20907308.jpg"><a href="//www.vectorstock.com/royalty-free-vector/envelope-symbol-e-mail-email-message-sign-vector-20907308" title="envelope symbol e-mail email message sign vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/73/08/envelope-symbol-e-mail-email-message-sign-vector-20907308.jpg" title="envelope symbol e-mail email message sign" alt="envelope symbol e-mail email message sign vector image"></noscript></a></li>
+						<li data-id="22849633" data-title="mail icons set cartoon style" data-src="https://cdn4.vectorstock.com/i/thumbs/96/33/mail-icons-set-cartoon-style-vector-22849633.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icons-set-cartoon-style-vector-22849633" title="mail icons set cartoon style vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/96/33/mail-icons-set-cartoon-style-vector-22849633.jpg" title="mail icons set cartoon style" alt="mail icons set cartoon style vector image"></noscript></a></li>
+						<li data-id="23027217" data-title="icon concept of closed and opened envelopes" data-src="https://cdn3.vectorstock.com/i/thumbs/72/17/icon-concept-of-closed-and-opened-envelopes-vector-23027217.jpg"><a href="//www.vectorstock.com/royalty-free-vector/icon-concept-of-closed-and-opened-envelopes-vector-23027217" title="icon concept of closed and opened envelopes vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/72/17/icon-concept-of-closed-and-opened-envelopes-vector-23027217.jpg" title="icon concept of closed and opened envelopes" alt="icon concept of closed and opened envelopes vector image"></noscript></a></li>
+						<li data-id="23751610" data-title="message email icon in line outline filled outline" data-src="https://cdn1.vectorstock.com/i/thumbs/16/10/message-email-icon-in-line-outline-filled-outline-vector-23751610.jpg"><a href="//www.vectorstock.com/royalty-free-vector/message-email-icon-in-line-outline-filled-outline-vector-23751610" title="message email icon in line outline filled outline vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/16/10/message-email-icon-in-line-outline-filled-outline-vector-23751610.jpg" title="message email icon in line outline filled outline" alt="message email icon in line outline filled outline vector image"></noscript></a></li>
+						<li data-id="22515153" data-title="blank envelope isolated on transparent background" data-src="https://cdn4.vectorstock.com/i/thumbs/51/53/blank-envelope-isolated-on-transparent-background-vector-22515153.jpg"><a href="//www.vectorstock.com/royalty-free-vector/blank-envelope-isolated-on-transparent-background-vector-22515153" title="blank envelope isolated on transparent background vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/51/53/blank-envelope-isolated-on-transparent-background-vector-22515153.jpg" title="blank envelope isolated on transparent background" alt="blank envelope isolated on transparent background vector image"></noscript></a></li>
+						<li data-id="21895041" data-title="email envelope concept digital mail yellow" data-src="https://cdn2.vectorstock.com/i/thumbs/50/41/email-envelope-concept-digital-mail-yellow-vector-21895041.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-envelope-concept-digital-mail-yellow-vector-21895041" title="email envelope concept digital mail yellow vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/50/41/email-envelope-concept-digital-mail-yellow-vector-21895041.jpg" title="email envelope concept digital mail yellow" alt="email envelope concept digital mail yellow vector image"></noscript></a></li>
+						<li data-id="21232613" data-title="email icon on white background" data-src="https://cdn4.vectorstock.com/i/thumbs/26/13/email-icon-on-white-background-vector-21232613.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-icon-on-white-background-vector-21232613" title="email icon on white background vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/26/13/email-icon-on-white-background-vector-21232613.jpg" title="email icon on white background" alt="email icon on white background vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/icon-vectors"><span class="lrg">More Icon Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-artist" class="group">
+				<h6><span class="icon"></span><strong>More by <a href="/royalty-free-vectors/vectors-by_veronawinner" rel="nofollow">veronawinner</a></strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/02/18/mail-icon-in-black-circle-envelope-symbol-vector-21190218.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-in-black-circle-envelope-symbol-vector-21190218" title="mail icon in black circle envelope symbol vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/02/18/mail-icon-in-black-circle-envelope-symbol-vector-21190218.jpg" title="mail icon in black circle envelope symbol" alt="mail icon in black circle envelope symbol vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/12/28/email-icon-in-flat-style-vector-22681228.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-icon-in-flat-style-vector-22681228" title="email icon in flat style vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/12/28/email-icon-in-flat-style-vector-22681228.jpg" title="email icon in flat style" alt="email icon in flat style vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/86/05/mail-icon-isolated-isolated-on-white-background-vector-19308605.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icon-isolated-isolated-on-white-background-vector-19308605" title="mail icon isolated isolated on white background vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/86/05/mail-icon-isolated-isolated-on-white-background-vector-19308605.jpg" title="mail icon isolated isolated on white background" alt="mail icon isolated isolated on white background vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/09/38/mail-arrow-icon-vector-19320938.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-arrow-icon-vector-19320938" title="mail arrow icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/09/38/mail-arrow-icon-vector-19320938.jpg" title="mail arrow icon" alt="mail arrow icon vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/69/59/fast-mail-icon-isolated-on-white-background-vector-19316959.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-mail-icon-isolated-on-white-background-vector-19316959" title="fast mail icon isolated on white background vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/69/59/fast-mail-icon-isolated-on-white-background-vector-19316959.jpg" title="fast mail icon isolated on white background" alt="fast mail icon isolated on white background vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/00/66/set-mail-isolated-on-white-background-vector-19350066.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-mail-isolated-on-white-background-vector-19350066" title="set mail isolated on white background vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/00/66/set-mail-isolated-on-white-background-vector-19350066.jpg" title="set mail isolated on white background" alt="set mail isolated on white background vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/97/95/mail-icons-letter-in-envelope-mail-delivery-symbol-vector-19319795.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mail-icons-letter-in-envelope-mail-delivery-symbol-vector-19319795" title="mail icons letter in envelope mail delivery symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/97/95/mail-icons-letter-in-envelope-mail-delivery-symbol-vector-19319795.jpg" title="mail icons letter in envelope mail delivery symbol" alt="mail icons letter in envelope mail delivery symbol vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/02/98/email-icon-in-black-circle-e-mail-symbol-vector-21190298.jpg"><a href="//www.vectorstock.com/royalty-free-vector/email-icon-in-black-circle-e-mail-symbol-vector-21190298" title="email icon in black circle e-mail symbol vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/02/98/email-icon-in-black-circle-e-mail-symbol-vector-21190298.jpg" title="email icon in black circle e-mail symbol" alt="email icon in black circle e-mail symbol vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/12/11/contact-icons-in-flat-style-vector-21121211.jpg"><a href="//www.vectorstock.com/royalty-free-vector/contact-icons-in-flat-style-vector-21121211" title="contact icons in flat style vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/12/11/contact-icons-in-flat-style-vector-21121211.jpg" title="contact icons in flat style" alt="contact icons in flat style vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/89/89/contact-icon-set-in-flat-style-vector-21348989.jpg"><a href="//www.vectorstock.com/royalty-free-vector/contact-icon-set-in-flat-style-vector-21348989" title="contact icon set in flat style vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/89/89/contact-icon-set-in-flat-style-vector-21348989.jpg" title="contact icon set in flat style" alt="contact icon set in flat style vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="21348972" data-title="color contact icons in flat style" data-src="https://cdn3.vectorstock.com/i/thumbs/89/72/color-contact-icons-in-flat-style-vector-21348972.jpg"><a href="//www.vectorstock.com/royalty-free-vector/color-contact-icons-in-flat-style-vector-21348972" title="color contact icons in flat style vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/89/72/color-contact-icons-in-flat-style-vector-21348972.jpg" title="color contact icons in flat style" alt="color contact icons in flat style vector image vector image"></noscript></a></li>
+						<li data-id="23371571" data-title="phone line icon in black with waves" data-src="https://cdn2.vectorstock.com/i/thumbs/15/71/phone-line-icon-in-black-with-waves-vector-23371571.jpg"><a href="//www.vectorstock.com/royalty-free-vector/phone-line-icon-in-black-with-waves-vector-23371571" title="phone line icon in black with waves vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/15/71/phone-line-icon-in-black-with-waves-vector-23371571.jpg" title="phone line icon in black with waves" alt="phone line icon in black with waves vector image vector image"></noscript></a></li>
+						<li data-id="22693343" data-title="phone icon in black in flat style" data-src="https://cdn4.vectorstock.com/i/thumbs/33/43/phone-icon-in-black-in-flat-style-vector-22693343.jpg"><a href="//www.vectorstock.com/royalty-free-vector/phone-icon-in-black-in-flat-style-vector-22693343" title="phone icon in black in flat style vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/33/43/phone-icon-in-black-in-flat-style-vector-22693343.jpg" title="phone icon in black in flat style" alt="phone icon in black in flat style vector image vector image"></noscript></a></li>
+						<li data-id="21020360" data-title="key icon in flat style secret symbol" data-src="https://cdn1.vectorstock.com/i/thumbs/03/60/key-icon-in-flat-style-secret-symbol-vector-21020360.jpg"><a href="//www.vectorstock.com/royalty-free-vector/key-icon-in-flat-style-secret-symbol-vector-21020360" title="key icon in flat style secret symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/03/60/key-icon-in-flat-style-secret-symbol-vector-21020360.jpg" title="key icon in flat style secret symbol" alt="key icon in flat style secret symbol vector image vector image"></noscript></a></li>
+						<li data-id="23403353" data-title="telephone icon black phone symbol in bubble" data-src="https://cdn4.vectorstock.com/i/thumbs/33/53/telephone-icon-black-phone-symbol-in-bubble-vector-23403353.jpg"><a href="//www.vectorstock.com/royalty-free-vector/telephone-icon-black-phone-symbol-in-bubble-vector-23403353" title="telephone icon black phone symbol in bubble vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/33/53/telephone-icon-black-phone-symbol-in-bubble-vector-23403353.jpg" title="telephone icon black phone symbol in bubble" alt="telephone icon black phone symbol in bubble vector image vector image"></noscript></a></li>
+						<li data-id="21174744" data-title="phone icon in black circle telephone symbol" data-src="https://cdn5.vectorstock.com/i/thumbs/47/44/phone-icon-in-black-circle-telephone-symbol-vector-21174744.jpg"><a href="//www.vectorstock.com/royalty-free-vector/phone-icon-in-black-circle-telephone-symbol-vector-21174744" title="phone icon in black circle telephone symbol vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/47/44/phone-icon-in-black-circle-telephone-symbol-vector-21174744.jpg" title="phone icon in black circle telephone symbol" alt="phone icon in black circle telephone symbol vector image vector image"></noscript></a></li>
+						<li data-id="20968234" data-title="box icon pack symbol simple open box abstract icon" data-src="https://cdn5.vectorstock.com/i/thumbs/82/34/box-icon-pack-symbol-simple-open-box-abstract-icon-vector-20968234.jpg"><a href="//www.vectorstock.com/royalty-free-vector/box-icon-pack-symbol-simple-open-box-abstract-icon-vector-20968234" title="box icon pack symbol simple open box abstract icon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/82/34/box-icon-pack-symbol-simple-open-box-abstract-icon-vector-20968234.jpg" title="box icon pack symbol simple open box abstract icon" alt="box icon pack symbol simple open box abstract icon vector image vector image"></noscript></a></li>
+						<li data-id="21062701" data-title="people talking icon group of people symbol" data-src="https://cdn2.vectorstock.com/i/thumbs/27/01/people-talking-icon-group-of-people-symbol-vector-21062701.jpg"><a href="//www.vectorstock.com/royalty-free-vector/people-talking-icon-group-of-people-symbol-vector-21062701" title="people talking icon group of people symbol vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/27/01/people-talking-icon-group-of-people-symbol-vector-21062701.jpg" title="people talking icon group of people symbol" alt="people talking icon group of people symbol vector image vector image"></noscript></a></li>
+						<li data-id="18637436" data-title="phone icon in black with waves" data-src="https://cdn2.vectorstock.com/i/thumbs/74/36/phone-icon-in-black-with-waves-vector-18637436.jpg"><a href="//www.vectorstock.com/royalty-free-vector/phone-icon-in-black-with-waves-vector-18637436" title="phone icon in black with waves vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/74/36/phone-icon-in-black-with-waves-vector-18637436.jpg" title="phone icon in black with waves" alt="phone icon in black with waves vector image vector image"></noscript></a></li>
+						<li data-id="20987068" data-title="home key icon in flat style simple estate symbol" data-src="https://cdn4.vectorstock.com/i/thumbs/70/68/home-key-icon-in-flat-style-simple-estate-symbol-vector-20987068.jpg"><a href="//www.vectorstock.com/royalty-free-vector/home-key-icon-in-flat-style-simple-estate-symbol-vector-20987068" title="home key icon in flat style simple estate symbol vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/70/68/home-key-icon-in-flat-style-simple-estate-symbol-vector-20987068.jpg" title="home key icon in flat style simple estate symbol" alt="home key icon in flat style simple estate symbol vector image vector image"></noscript></a></li>
+						<li data-id="21698062" data-title="avatar icon avatar flat symbol isolated on white" data-src="https://cdn3.vectorstock.com/i/thumbs/80/62/avatar-icon-avatar-flat-symbol-isolated-on-white-vector-21698062.jpg"><a href="//www.vectorstock.com/royalty-free-vector/avatar-icon-avatar-flat-symbol-isolated-on-white-vector-21698062" title="avatar icon avatar flat symbol isolated on white vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/80/62/avatar-icon-avatar-flat-symbol-isolated-on-white-vector-21698062.jpg" title="avatar icon avatar flat symbol isolated on white" alt="avatar icon avatar flat symbol isolated on white vector image vector image"></noscript></a></li>
+						<li data-id="20009696" data-title="cloud icon on white cloud saving design" data-src="https://cdn2.vectorstock.com/i/thumbs/96/96/cloud-icon-on-white-cloud-saving-design-vector-20009696.jpg"><a href="//www.vectorstock.com/royalty-free-vector/cloud-icon-on-white-cloud-saving-design-vector-20009696" title="cloud icon on white cloud saving design vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/96/96/cloud-icon-on-white-cloud-saving-design-vector-20009696.jpg" title="cloud icon on white cloud saving design" alt="cloud icon on white cloud saving design vector image vector image"></noscript></a></li>
+						<li data-id="20982312" data-title="help sign icon simple question symbol" data-src="https://cdn3.vectorstock.com/i/thumbs/23/12/help-sign-icon-simple-question-symbol-vector-20982312.jpg"><a href="//www.vectorstock.com/royalty-free-vector/help-sign-icon-simple-question-symbol-vector-20982312" title="help sign icon simple question symbol vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/23/12/help-sign-icon-simple-question-symbol-vector-20982312.jpg" title="help sign icon simple question symbol" alt="help sign icon simple question symbol vector image vector image"></noscript></a></li>
+						<li data-id="19316303" data-title="chat icon in flat style communication chat bubble" data-src="https://cdn4.vectorstock.com/i/thumbs/63/03/chat-icon-in-flat-style-communication-chat-bubble-vector-19316303.jpg"><a href="//www.vectorstock.com/royalty-free-vector/chat-icon-in-flat-style-communication-chat-bubble-vector-19316303" title="chat icon in flat style communication chat bubble vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/63/03/chat-icon-in-flat-style-communication-chat-bubble-vector-19316303.jpg" title="chat icon in flat style communication chat bubble" alt="chat icon in flat style communication chat bubble vector image vector image"></noscript></a></li>
+						<li data-id="20982468" data-title="edit icon in flat style simple pen symbol" data-src="https://cdn4.vectorstock.com/i/thumbs/24/68/edit-icon-in-flat-style-simple-pen-symbol-vector-20982468.jpg"><a href="//www.vectorstock.com/royalty-free-vector/edit-icon-in-flat-style-simple-pen-symbol-vector-20982468" title="edit icon in flat style simple pen symbol vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/24/68/edit-icon-in-flat-style-simple-pen-symbol-vector-20982468.jpg" title="edit icon in flat style simple pen symbol" alt="edit icon in flat style simple pen symbol vector image vector image"></noscript></a></li>
+						<li data-id="21062707" data-title="business network icon" data-src="https://cdn3.vectorstock.com/i/thumbs/27/07/business-network-icon-vector-21062707.jpg"><a href="//www.vectorstock.com/royalty-free-vector/business-network-icon-vector-21062707" title="business network icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/27/07/business-network-icon-vector-21062707.jpg" title="business network icon" alt="business network icon vector image vector image"></noscript></a></li>
+						<li data-id="21062700" data-title="calculation icon in flat style calculator symbol" data-src="https://cdn1.vectorstock.com/i/thumbs/27/00/calculation-icon-in-flat-style-calculator-symbol-vector-21062700.jpg"><a href="//www.vectorstock.com/royalty-free-vector/calculation-icon-in-flat-style-calculator-symbol-vector-21062700" title="calculation icon in flat style calculator symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/27/00/calculation-icon-in-flat-style-calculator-symbol-vector-21062700.jpg" title="calculation icon in flat style calculator symbol" alt="calculation icon in flat style calculator symbol vector image vector image"></noscript></a></li>
+						<li data-id="20616665" data-title="learning icon in flat style open book symbol" data-src="https://cdn1.vectorstock.com/i/thumbs/66/65/learning-icon-in-flat-style-open-book-symbol-vector-20616665.jpg"><a href="//www.vectorstock.com/royalty-free-vector/learning-icon-in-flat-style-open-book-symbol-vector-20616665" title="learning icon in flat style open book symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/66/65/learning-icon-in-flat-style-open-book-symbol-vector-20616665.jpg" title="learning icon in flat style open book symbol" alt="learning icon in flat style open book symbol vector image vector image"></noscript></a></li>
+						<li data-id="19902726" data-title="link icon lock chain symbol on white background" data-src="https://cdn2.vectorstock.com/i/thumbs/27/26/link-icon-lock-chain-symbol-on-white-background-vector-19902726.jpg"><a href="//www.vectorstock.com/royalty-free-vector/link-icon-lock-chain-symbol-on-white-background-vector-19902726" title="link icon lock chain symbol on white background vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/27/26/link-icon-lock-chain-symbol-on-white-background-vector-19902726.jpg" title="link icon lock chain symbol on white background" alt="link icon lock chain symbol on white background vector image vector image"></noscript></a></li>
+						<li data-id="19907251" data-title="unlink icon unlock chain symbol isolated on white" data-src="https://cdn2.vectorstock.com/i/thumbs/72/51/unlink-icon-unlock-chain-symbol-isolated-on-white-vector-19907251.jpg"><a href="//www.vectorstock.com/royalty-free-vector/unlink-icon-unlock-chain-symbol-isolated-on-white-vector-19907251" title="unlink icon unlock chain symbol isolated on white vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/72/51/unlink-icon-unlock-chain-symbol-isolated-on-white-vector-19907251.jpg" title="unlink icon unlock chain symbol isolated on white" alt="unlink icon unlock chain symbol isolated on white vector image vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-by_veronawinner" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-keywords" class="group">
+				<h6><span class="icon"></span><strong>Related Searches</strong></h6>
+				<ul>
+					<li><a href="/royalty-free-vectors/icon-vectors">Icon</a></li>
+					<li><a href="/royalty-free-vectors/white-vectors">White</a></li>
+					<li><a href="/royalty-free-vectors/isolated-vectors">Isolated</a></li>
+					<li><a href="/royalty-free-vectors/email-vectors">Email</a></li>
+					<li><a href="/royalty-free-vectors/symbol-vectors">Symbol</a></li>
+					<li><a href="/royalty-free-vectors/mail-vectors">Mail</a></li>
+					<li><a href="/royalty-free-vectors/envelope-vectors">Envelope</a></li>
+					<li><a href="/royalty-free-vectors/internet-vectors">Internet</a></li>
+					<li><a href="/royalty-free-vectors/sign-vectors">Sign</a></li>
+					<li><a href="/royalty-free-vectors/open-vectors">Open</a></li>
+					<li><a href="/royalty-free-vectors/black-vectors">Black</a></li>
+					<li><a href="/royalty-free-vectors/newsletter-vectors">Newsletter</a></li>
+					<li><a href="/royalty-free-vectors/correspondence-vectors">Correspondence</a></li>
+					<li><a href="/royalty-free-vectors/message-vectors">Message</a></li>
+					<li><a href="/royalty-free-vectors/business-vectors">Business</a></li>
+					<li><a href="/royalty-free-vectors/website-vectors">Website</a></li>
+					<li><a href="/royalty-free-vectors/address-vectors">Address</a></li>
+					<li><a href="/royalty-free-vectors/communication-vectors">Communication</a></li>
+					<li><a href="/royalty-free-vectors/web-vectors">Web</a></li>
+					<li><a href="/royalty-free-vectors/letter-vectors">Letter</a></li>
+					<li><a href="/royalty-free-vectors/paper-vectors">Paper</a></li>
+					<li><a href="/royalty-free-vectors/send-vectors">Send</a></li>
+					<li><a href="/royalty-free-vectors/post-vectors">Post</a></li>
+					<li><a href="/royalty-free-vectors/flat-vectors">Flat</a></li>
+					<li><a href="/royalty-free-vectors/new-vectors">New</a></li>
+					<li><a href="/royalty-free-vectors/contact-vectors">Contact</a></li>
+					<li><a href="/royalty-free-vectors/contour-vectors">Contour</a></li>
+					<li><a href="/royalty-free-vectors/spam-vectors">Spam</a></li>
+					<li><a href="/royalty-free-vectors/mailing-vectors">Mailing</a></li>
+					<li><a href="/royalty-free-vectors/e-mail-vectors">E-mail</a></li>
+				</ul>
+			</div>
+		</section>
+	</article>
+
+	<!-- Footer -->
+	<footer>
+
+		<div>
+		<div class="column c1">
+			<nav class="company">
+				<h4>VectorStock</h4>
+				<ul>
+					<li><a href="/" title="Home">Home</a></li>
+					<li class="sel"><a href="/free-vectors" title="Free Vectors">Free Vectors</a></li>
+					<li class="sel"><a href="/royalty-free-vectors" title="All Royalty-Free Vectors">All Vectors</a></li>
+				</ul>
+				<ul>
+					<li><a href="/what-is-a-vector" title="What is a Vector?">What is a Vector?</a></li>
+				</ul>
+				<ul>
+					<li class="sel"><a href="/faq" title="Frequently Asked Questions"><span class="long">Frequently Asked Questions</span><span class="short">FAQs</span></a></li>
+					<li><a href="/faq/members/terms-of-use" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+					<li class="sel"><a href="/contact" title="Contact Us">Contact Us</a></li>
+									</ul>
+			</nav>
+		</div>
+		<div class="column c2">
+			<nav class="account">
+					<h4><span class="title">Account</span><span class="icon"></span></h4>
+					<ul>
+						<li><a href="/signup" title="Join Now">Join Now</a></li>
+						<li><a href="/signup?contributor" title="Become a VectorStock Contributor">Contributor Sign Up</a></li>
+						<li><a href="/faq/artists/why-sell-at-vectorstock" title="Contributor FAQ">Contributor FAQ</a></li>
+					<ul>
+			</nav>
+		</div>
+		<div class="column c3">
+			<nav class="social">
+				<h4>Social</h4>
+				<ul>
+					<li class="facebook sel"><a href="http://www.facebook.com/VectorStock" target="_blank"><span class="title">Facebook</span><span class="icon"></span></a></li>
+					<li class="pinterest sel"><a href="http://pinterest.com/vectorstock/" target="_blank"><span class="title">Pinterest</span><span class="icon"></span></a></li>
+					<li class="twitter sel"><a href="https://twitter.com/VectorStock" target="_blank"><span class="title">Twitter</span><span class="icon"></span></a></li>
+				</ul>
+			</nav>
+			<div class="signoff">
+				<h5><a href="https://www.vectorstock.com/" title="VectorStock®">VectorStock®</a></h5>
+				<p>VectorStock and the VectorStock logo are registered trademarks of VectorStock Media.<br>
+				© 2019. <span>All Rights Reserved.</span></p>
+			</div>
+		</div>
+	</div></footer>
+
+
+	<script src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"02e09611df","applicationID":"156179534","transactionName":"ZV0ENRYCC0RYAkVbDVwXJRQXFwpaFhNeSwNeTB9MAhEAUhQXVFEWXUpJBAkCDFsUCFJdDB9RFQ4IAhFSXUxeXE9FUA8VAU4HVloKVkANR1YCTBIGBkNWExwDWwALX1hTVw==","queueTime":0,"applicationTime":48,"atts":"SRoHQ14YGEo=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+var photoArray = [
+  "./resources/instapix/Bridge.jpg",
+  "./resources/instapix/dirtyJerz.jpg",
+  "./resources/instapix/sideOfATruck.jpg",
+  "./resources/instapix/Drummer.jpg",
+  "./resources/instapix/dogFlower.jpg",
+  "./resources/instapix/tripCircle.jpg",
+  "./resources/instapix/blackAndWhiteCircle.jpg",
+  "./resources/instapix/hole.jpg",
+  "./resources/instapix/underTheBridge.jpg",
+  "./resources/instapix/buildingZoom.jpg",
+  "./resources/instapix/library.jpg",
+  "./resources/instapix/upBuildingBW.jpg",
+  "./resources/instapix/couch.jpg",
+  "./resources/instapix/marshmellowTree.jpg",
+  "./resources/instapix/whiteBlownTree.jpg",
+  "./resources/instapix/counterReflection.jpg",
+  "./resources/instapix/rockCreek.jpg"
+];
