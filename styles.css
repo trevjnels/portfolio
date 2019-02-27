@@ -2,13 +2,60 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 250px;
+  height: 200px;
   width: 100%;
   border-radius: 50%;
+  margin-bottom: 5%;
+}
+
+.contactPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contactImage {
+  width: 50%;
+  border: 30px solid black;
+  object-fit: cover;
+}
+
+.imageContact {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.content-js {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rightProject {
+  align-self: center;
+  float: left;
+}
+
+.leftProject {
+  width: 80%;
+}
+
+.leftProject>p {
+  width: 60%;
+}
+
+.paddingBottom {
+  margin-bottom: 20%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .top {
-  float: top;
   padding-top: 0px;
   margin-top: -10px;
 }
@@ -32,12 +79,16 @@
   height: auto;
 }
 
-.workImage:hover {
-  width: 100%;
+.getBigger {
+  width: 110%;
+  padding: 1%;
+  border-radius: 5px;
+  border: solid black 1%;
 }
 
 nav {
-  margin: 5%;
+  padding-top: 15px;
+  display: flex;
 }
 
 nav>ul {
@@ -46,6 +97,10 @@ nav>ul {
   list-style-type: none;
   font-weight: bold;
   margin-top: -100px;
+}
+
+.takeMeHome {
+  color: white;
 }
 
 nav>ul>li {
@@ -67,6 +122,8 @@ nav>ul>li:click {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .container {
@@ -74,10 +131,10 @@ nav>ul>li:click {
   height: auto;
 }
 
-footer {
+footer>p {
   text-align: center;
   padding-top: 50px;
-  color: lightgray;
+  color: black;
 }
 
 h1 {
@@ -88,3 +145,47 @@ h1 {
 h2 {
   font-size: 1.5em;
 }
+
+@media screen and (max-width: 320px) {
+  body {
+    background-color: lightyellow;
+  }
+
+  nav>ul {
+    width: 57px;
+    font-size: .7em;
+    list-style-type: none;
+    font-weight: bold;
+    align-self: center;
+  }
+
+  .image-pannel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-bottom: 5%;
+  }
+
+  .top {
+    padding-top: 0px;
+    margin-top: -3px;
+  }
+
+  .border-image {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .bottom {
+    padding-bottom: 0px;
+    margin-bottom: -8px;
+  }
+}
+
+@media screen and (min-width: 320px) {}
+
+@media screen and (min-width: 769px) {}
