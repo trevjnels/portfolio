@@ -1,31 +1,5 @@
 "use strict";
 
-var docRoute = "/Users/trevornelson/Desktop/Projects/portfolio/";
-
-const takeMeHomeLink =
-  '<a href="/Users/trevornelson/Desktop/Projects/portfolio/index.html" class="takeMeHome">Take Me Home</a>';
-// const express = require("express");
-//
-// const app = express();
-//user ex
-//enter web page, be resting in the middle of the top and bototm
-//page auto-returns to this resting position once user lets go
-
-//the intial route will auto scroll the user on the "Trevor J. Nelson"
-//link.
-//the trevorjnelson Route will give you my short bio and technical spcecialities
-
-//they can view my projects link to scroll through the various projects
-// each project will have the image (which expands under hover)
-// eliminating the other elements besides the title using display: none
-//the other elements will be a short description and the github code link as well as
-//a deployed version link
-
-//Contact page will simply be a picture of a huge mtn covering half and white as the other background. they can go to contact for github, linkedin, twitter, gmail butotns
-
-//photography will bring them to a scrolling gallary of my instagram without connections
-//to the IG api.
-
 const scrollTo = function(div, offS) {
   console.log(`scrollTo is running`);
 
@@ -44,86 +18,111 @@ const navHandler = function() {
     var text = $(event.target)
       .text()
       .trim();
-    console.log(text);
-    if (text === "Trevor J. Nelson") {
+
+    if (text === "trevjnels") {
       noPlaceLikeHome();
+      console.log(text);
     } else if (text === "Projects") {
-      projectsRender();
+      projectsRender(projectsArray);
+      console.log(text);
     } else if (text === "Contact") {
-      return contactRender();
+      // return contactRender()
+      console.log(text);
     } else if (text === "Photography") {
-      return photoPageRender();
+      // return photoPageRender();
+      console.log(text);
     }
   });
+};
+
+const noPlaceLikeHome = function() {
+  $(".left")
+    .html(`<div class="mission-summary"><h2 class="Summary">Summary</h2><p>I am an obsessive and relentless tinkerer and have an unlimited thirst for new information with a strong appreciate for symmetry balance and natural patterns. I read thoroughly too much about the world and like to get caught up in the details. I am a mostly self-taught developer with an enterprise sales background. That said I was destined for engineering as child but was thrown off track. I had all the signs of a young steampunk Jedi: setting up the family computer at 5yo, becoming a mechanical pencil modder in 1st grade, spending much of my childhood solo in my dad’s workshop in the basement, and leading my physics/geometry/math
+    classes without even trying. </p><p>At the ripe age of 12 on a sunny afternoon, I met a mechanical engineer - well a whole bunch of them - in a hot tub in Disney World. They were attending an industry conference. This downtrodden and dissatisfied man told me that engineering was a miserable pursuit and to find greener pastures. At that point I stoped focusing on building. I’ve now seen what its like to do what you do not love for money, Now I'm fixing that and building.
+    When not coding, I'm summiting mountains and if(winter){c(snowboarding down them)};.</p></div>`);
+  $(".right")
+    .html(`<img class="profPic" alt="a hybrid photo of myself and my favorite grandparent" src="./resources/Louvor.jpg">
+    `);
+  $(".navUL").toggleClass("summaryNav", true);
+};
+
+const projectsRender = function(array) {
+  var leftOutput = "";
+  var rightOutput = "";
+  array.forEach(function(elem) {
+    leftOutput += `<h1 class='projectTitle'>${
+      elem.name
+    }</h1><img class='workImage' src='${
+      elem.photoSRC
+    }'><h2 class='projectDescription'>Description:</h2><p class='projectDescription'> ${
+      elem.description
+    } </p></div><div class='rightProject'>`;
+
+    rightOutput += `<ul class='projectUL'><li class='projectLink'><a href='${
+      elem.github
+    }'>Github<a/></li><li><a class='projectLink' href='${
+      elem.live
+    }'>Live</a></li></ul>`;
+  });
+
+  $(".left").html(leftOutput);
+  $(".right").html(rightOutput);
+  $(".content").toggleClass("projects", true);
+  $(".right").toggleClass("projectLinks", true);
 };
 const contactRender = function() {
-  console.log("contactRender is running");
-  $(".container").html(
-    `<div class='contactPage'><div class='contactLink'><ul> <li><a href='https://github.com/trevjnels/quizAppjq'>GitHub</a></li><li><a href='https://www.linkedin.com/in/trevorjohnnels/'>LinkedIn</a></li><li><a href="mailto:joeSchmo@gmail.com?subject=Found your portfolio site">EmailMe</a></li> </ul></div><div class='contactImage'><img class='imageContact' src='/Users/trevornelson/Desktop/Projects/portfolio/resources/contactPhoto.jpg'></div>`
-  );
-  // $("body").on("click", function() {
-  //   noPlaceLikeHome();
-  // });
-};
-const projectsRender = function() {
-  console.log("projectsRender is running");
-  $(".container").html(
-    "<div class='content-js'><div class='leftProject'><h1 class='projectTitle'>JQuery Quiz App</h1><img class='workImage' src='./resources/quizAppPic.png'><h2 class='projectDescription'>Description:</h2><p class='projectDescription'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteusint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div><div class='rightProject'><ul class='projectUL'><li class='projectLink'><a href='https://github.com/trevjnels/quizAppjq'>Github<a/></li><li><a class='projectLink' href='https://trevjnels.github.io/quizAppjq/'>Live</a></li></ul></div></div>"
-  );
-  // scrollTo("header");
-  window.location.hash = ".main";
-  projectHoverHandler();
-};
-const projectHoverHandler = function() {
-  console.log("projectHoverHandler is running");
-
-  $(".workImage").hover(
-    function() {
-      $(".workImage").attr("class", "getBigger");
-      $(".projectTitle").hide();
-      $(".projectDescription").hide();
-      $(".projectUL").hide();
-    },
-    function() {
-      projectsRender();
-    }
-  );
+  //
 };
 const photoPageRender = function() {
-  console.log("photoPageRender is running");
-  var photos = "";
-  // console.log(photoArray, "photoarray");
-  photoArray.forEach(function(photo) {
-    photos += `<img class="border-image bottom" src=${photo} >`;
-  });
-  console.log("photos ", photos);
-  $("body").html(`<p>${photos}</p>`);
-  $("body").on("click", function() {
-    noPlaceLikeHome();
-  });
+  //
 };
-const noPlaceLikeHome = function() {
-  console.log("noPlaceLikeHome Theres noPlaceLikeHome");
-  if ($("header").length === 0) {
-    console.log("take me home baby");
 
-    $("body").on("click", function() {
-      document.location.href = docRoute + "index.html";
-    });
-  } else {
-    $(".container").html(
-      "<div class='paddingBottom content-js'><h1>Mission</h1><div class='spacer'><div></div><p>I am an obsessive and relentless tinkerer and have an unlimited thirst for new information with a strong appreciate for symmetry balance and natural patterns. When not coding, I'm summiting mountains and if(winter){c(snowboarding down them)}. </p>"
-    );
+const arrayMixer = function(array) {
+  var useArray = array.slice();
+  var resultArray = [];
+  var num = array.length;
+  console.log(num);
+  var i = num;
+  while (i) {
+    var pushed = Math.floor(Math.random() * num);
+    if (resultArray.indexOf(pushed) === -1) {
+      resultArray.push(pushed);
+      --i;
+    }
   }
+  return resultArray;
 };
 
-// const playTheRising(){
-//   // play action bronson's song
-// }
+const borderFiller = function(array, num) {
+  let borderOutPutBottom = "";
+  let borderOutPutTop = "";
+  let indexesTop = arrayMixer(array).slice(0, num);
+  let indexesBottom = arrayMixer(array).slice(0, num);
+  // let length = array.length;
+  let i = 0;
+  indexesTop.forEach(function(index) {
+    var photoSource = array[index];
+
+    borderOutPutTop += `<img class='photoB photoB-${i}' src='${photoSource}' alt='photo from my instagram'>`;
+    i++;
+  });
+  i = 0;
+  indexesBottom.forEach(function(index) {
+    var photoSource = array[index];
+
+    borderOutPutBottom += `<img class='photoB photoB-${i}' src='${photoSource}' alt='photo from my instagram'>`;
+    i++;
+  });
+  console.log("borderFiller is running");
+  $(".photoBorder.footer").html(borderOutPutTop);
+  $(".photoBorder.header").html(borderOutPutBottom);
+};
 
 const autoRunner = function() {
-  scrollTo("footer");
+  // scrollTo("footer");
   navHandler();
+  borderFiller(photoArray, 10);
+  // noPlaceLikeHome();
   // contactRender();
   // photoPageRender();
   // noPlaceLikeHome();

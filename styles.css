@@ -1,0 +1,288 @@
+.flex-container {
+  display: flex;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+.header.photoBorder {
+  align-self: flex-start;
+  margin-left: -5px;
+}
+
+.footer.photoBorder {
+  align-self: flex-end;
+  margin-right: -10px;
+}
+
+.photoBorder {
+  height: 10vw;
+}
+
+.photoB {
+  height: auto;
+  object-fit: cover;
+  border-radius: 5%;
+}
+
+.main {
+  width: 100vw;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* position: absolute;
+  top: 30%;
+  height: 200px; */
+}
+
+.workImage {
+  width: 15vw;
+}
+
+.workImage:hover {
+  width: 40vw;
+  height: auto;
+}
+
+.content {
+  /* background-color: blue; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  width: 60vw;
+  height: auto;
+  background-color: yellow;
+  margin-right: 5%;
+  text-align: center;
+}
+
+.content.projects {
+  max-height: 85vw;
+  overflow: scroll;
+}
+
+.projectLinks {
+  justify-content: space-between;
+}
+
+.right {
+  width: 10vw;
+  height: auto;
+}
+
+.profPic {
+  width: 30vw;
+  object-fit: fill;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .main {
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .summaryNav {
+    display: flex;
+    align-items: flex-end;
+    background-color: blue;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+  }
+
+  .profPic {
+    display: none;
+  }
+
+  .content {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vw;
+    margin-bottom: 5%;
+  }
+
+  .left {
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: scroll;
+  }
+
+  .right {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .photoBorder {
+    height: 25vw;
+  }
+
+  .photoB {
+    width: 25vw;
+    height: auto;
+  }
+
+  .photoB-4 {
+    display: none;
+  }
+
+  .photoB-5 {
+    display: none
+  }
+
+  .photoB-6 {
+    display: none;
+  }
+
+  .photoB-7 {
+    display: none;
+  }
+
+  .photoB-8 {
+    display: none;
+  }
+
+  .photoB-9 {
+    display: none;
+  }
+}
+
+* {
+  background-color: lightblue;
+}
+
+@media screen and (min-width: 401px) {
+  * {
+    background-color: lightpink;
+  }
+
+  .projectLinks {
+    justify-content: space-between;
+  }
+
+  .summaryNav {
+    display: flex;
+    align-items: flex-end;
+    background-color: blue;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7.8%;
+  }
+
+  .main {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .profPic {
+    align-self: flex-start;
+    margin-top: 100%;
+    height: auto;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  }
+
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .left {
+    margin-bottom: auto;
+    background-color: red;
+  }
+
+  .photoBorder {
+    height: 14.2857142857vw;
+  }
+
+  .photoB {
+    width: 14.2857142857vw;
+    height: auto;
+  }
+
+  .photoB-7 {
+    display: none;
+  }
+
+  .photoB-8 {
+    display: none;
+  }
+
+  .photoB-9 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  * {
+    background-color: lightgreen;
+  }
+
+  .projectLinks {
+    justify-content: space-between;
+  }
+
+  .summaryNav {
+    align-self: center;
+    background-color: blue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+  }
+
+  .profPic {
+    width: 15vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: center;
+    object-fit: fill;
+    border-radius: 10px;
+  }
+
+  .photoBorder {
+    height: 10vw;
+  }
+
+  .photoB {
+    width: 10vw;
+    height: auto;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  * {
+    background-color: lightpurple;
+  }
+
+  .projectLinks {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
