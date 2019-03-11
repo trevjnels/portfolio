@@ -11,6 +11,13 @@ const scrollTo = function(div, offS) {
   );
 };
 
+const classResetter = function() {
+  $(".content").toggleClass("projects", false);
+  $(".right").toggleClass("projectLinks", false);
+  $(".content").toggleClass("contactPage", false);
+  $(".navUL").toggleClass("summaryNav", false);
+};
+
 const navHandler = function() {
   console.log("navHandler is running");
 
@@ -19,6 +26,9 @@ const navHandler = function() {
       .text()
       .trim();
 
+    classResetter();
+    //removes any previously attached classes to elements to prevent css leakage
+
     if (text === "trevjnels") {
       noPlaceLikeHome();
       console.log(text);
@@ -26,11 +36,10 @@ const navHandler = function() {
       projectsRender(projectsArray);
       console.log(text);
     } else if (text === "Contact") {
-      // return contactRender()
+      contactRender();
       console.log(text);
     } else if (text === "Photography") {
-      // return photoPageRender();
-      console.log(text);
+      photoPageRender();
     }
   });
 };
@@ -70,11 +79,39 @@ const projectsRender = function(array) {
   $(".content").toggleClass("projects", true);
   $(".right").toggleClass("projectLinks", true);
 };
+
 const contactRender = function() {
-  //
+  $(".left").html(
+    `
+      <div class="contactLinks">
+        <ul class="contactLinkUL">
+          <li class="contactLink contact-github"><a src="www.github.com/trevjnels"><img class="contactPhoto" src="./resources/githublogo.png" alt="github logo"></a></li>
+          <li class="contactLink contact-linkedin"><a src="www.linkedin.com/trevjnels"><img  class="contactPhoto"src="./resources/linkedin-logo.png"></a></li>
+          <li class="contactLink contact-emailMe"><a src="mailto:trevorjohnnels@gmail.com?Subject:Found your portfolio site & was impressed...">Email Me</a></li>
+        </ul>
+      </div>`
+  );
+  $(".right").html(
+    `  <div class="contactPhotoContainer"><img class="largeContactPhoto" src="./resources/contactPhoto.jpg" alt="photo looking up a glass dome that I took in Vancouver"> </div>
+  </div>`
+  );
+
+  $(".content").toggleClass("contactPage", true);
 };
 const photoPageRender = function() {
-  //
+  var result = "";
+  let indexes = arrayMixer(photoArray);
+  for (let i = 0; i < 40; ++i) {
+    result += `<img class="photoPagePhoto" src="${
+      photoArray[indexes[i % indexes.length]]
+    }"`;
+  }
+
+  console.log(result);
+  $("*").html(
+    `<div class="photoPage">${result}</div>
+  `
+  );
 };
 
 const arrayMixer = function(array) {

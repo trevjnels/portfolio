@@ -2,6 +2,31 @@
   display: flex;
 }
 
+.contactPhoto {
+  max-width: 100%;
+  height: auto;
+}
+
+.contactPhotoContainer {
+  height: 55vh;
+}
+
+img.largeContactPhoto {
+  height: 100%;
+  object-fit: cover;
+}
+
+img.contactPhoto {
+  width: 10vw;
+}
+
+.contactPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -63,6 +88,16 @@ body {
   background-color: yellow;
   margin-right: 5%;
   text-align: center;
+  justify-content: center;
+}
+
+.contactPage>.left {
+  width: 15vw;
+  padding-right: 10%;
+}
+
+.contactPage {
+  padding-right: 5%;
 }
 
 .content.projects {
@@ -169,8 +204,13 @@ body {
     background-color: lightpink;
   }
 
+  ul.projectUL {
+    margin-top: 270px;
+  }
+
   .projectLinks {
-    justify-content: space-between;
+    justify-content: space-around;
+    padding-top: 10%;
   }
 
   .summaryNav {
