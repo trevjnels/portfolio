@@ -1,21 +1,16 @@
 "use strict";
 
-const scrollTo = function(div, offS) {
-  console.log(`scrollTo is running`);
-
-  $("html, body").animate(
-    {
-      scrollTop: $(`${div}`).offset(offS).top
-    },
-    1000
-  );
-};
-
 const classResetter = function() {
   $(".content").toggleClass("projects", false);
   $(".right").toggleClass("projectLinks", false);
   $(".content").toggleClass("contactPage", false);
   $(".navUL").toggleClass("summaryNav", false);
+  $(".right").toggleClass("noDisplay", false);
+  $(".navUL").toggleClass("contactNavUL", false);
+  $(".right").toggleClass("profPicRight", false);
+  $(".left").toggleClass("summaryLeft", false);
+  $(".left").toggleClass("mainProjects", false);
+  $(".main").toggleClass("mainProjects", false);
 };
 
 const navHandler = function() {
@@ -27,19 +22,27 @@ const navHandler = function() {
       .trim();
 
     classResetter();
-    //removes any previously attached classes to elements to prevent css leakage
 
-    if (text === "trevjnels") {
-      noPlaceLikeHome();
-      console.log(text);
-    } else if (text === "Projects") {
-      projectsRender(projectsArray);
-      console.log(text);
-    } else if (text === "Contact") {
-      contactRender();
-      console.log(text);
-    } else if (text === "Photography") {
+    //removes any previously attached classes to elements to prevent css leakage
+    if (text !== "Photography") {
+      if (text === "trevjnels") {
+        noPlaceLikeHome();
+        console.log(text);
+        scrollTo(".main");
+      } else if (text === "Projects") {
+        projectsRender(projectsArray);
+        console.log(text);
+        scrollTo(".main");
+      } else if (text === "Contact") {
+        contactRender();
+        scrollTo(".main");
+        console.log(text);
+      }
+    } else {
       photoPageRender();
+      alert(
+        "Here are more of my photos, click anywhere on the screen to return home."
+      );
     }
   });
 };
@@ -50,68 +53,111 @@ const noPlaceLikeHome = function() {
     classes without even trying. </p><p>At the ripe age of 12 on a sunny afternoon, I met a mechanical engineer - well a whole bunch of them - in a hot tub in Disney World. They were attending an industry conference. This downtrodden and dissatisfied man told me that engineering was a miserable pursuit and to find greener pastures. At that point I stoped focusing on building. I’ve now seen what its like to do what you do not love for money, Now I'm fixing that and building.
     When not coding, I'm summiting mountains and if(winter){c(snowboarding down them)};.</p></div>`);
   $(".right")
-    .html(`<img class="profPic" alt="a hybrid photo of myself and my favorite grandparent" src="./resources/Louvor.jpg">
+    .html(`<img class="profPic" alt="a hybrid photo of myself and my favorite grandparent" src="./resources/Louvor.jpg"><p>An overlay of my face and my late grandfather's.</p>
     `);
   $(".navUL").toggleClass("summaryNav", true);
+  $(".right").toggleClass("profPicRight", true);
+  $(".left").toggleClass("summaryLeft", true);
 };
 
 const projectsRender = function(array) {
   var leftOutput = "";
-  var rightOutput = "";
+
   array.forEach(function(elem) {
-    leftOutput += `<h1 class='projectTitle'>${
+    leftOutput += `<div class=" left project"><div class="topProject"><div class="leftProject"<h1 class='projectTitle'>${
       elem.name
     }</h1><img class='workImage' src='${
       elem.photoSRC
-    }'><h2 class='projectDescription'>Description:</h2><p class='projectDescription'> ${
-      elem.description
-    } </p></div><div class='rightProject'>`;
-
-    rightOutput += `<ul class='projectUL'><li class='projectLink'><a href='${
+    }'></div><div class="rightProject"><ul class='projectUL'><li class='projectLink'><a href='${
       elem.github
-    }'>Github<a/></li><li><a class='projectLink' href='${
+    }'>Github<a/></li><li class='projectLink'><a href='${
       elem.live
-    }'>Live</a></li></ul>`;
+    }'>Live</a></li></ul></div></div><h2 class='projectDescription'>Description:</h2><p class='projectDescription'> ${
+      elem.description
+    } </p></div></div>`;
+
+    // rightOutput += `<ul class='projectUL'><li class='projectLink'><a href='${
+    //   elem.github
+    // }'>Github<a/></li><li><a class='projectLink' href='${
+    //   elem.live
+    // }'>Live</a></li></ul>`;
   });
 
+  // $(".content").html(
+  //   `<div class="content flex-container projects">${leftOutput}`
+  // );
   $(".left").html(leftOutput);
-  $(".right").html(rightOutput);
+  $(".right").html("");
+  $(".right").toggleClass("noDisplay", true);
+  $(".left").toggleClass("mainProjects", true);
+  $(".main").toggleClass("mainProjects", true);
+
   $(".content").toggleClass("projects", true);
-  $(".right").toggleClass("projectLinks", true);
+  // $(".right").toggleClass("projectLinks", true);
 };
 
 const contactRender = function() {
   $(".left").html(
     `
-      <div class="contactLinks">
-        <ul class="contactLinkUL">
-          <li class="contactLink contact-github"><a src="www.github.com/trevjnels"><img class="contactPhoto" src="./resources/githublogo.png" alt="github logo"></a></li>
-          <li class="contactLink contact-linkedin"><a src="www.linkedin.com/trevjnels"><img  class="contactPhoto"src="./resources/linkedin-logo.png"></a></li>
-          <li class="contactLink contact-emailMe"><a src="mailto:trevorjohnnels@gmail.com?Subject:Found your portfolio site & was impressed...">Email Me</a></li>
-        </ul>
-      </div>`
+        <div class="contactLinkForm">
+          <div class="contactLink contact-github"><img class="contactPhoto github" src="./resources/githublogo.png" alt="github logo"></div>
+          <div class="contactLink contact-linkedin"><img  class="contactPhoto link"src="./resources/linkedin-logo.png" alt="linkedin logo"></div>
+          <div class="contactLink contact-emailMe"><img class="contactPhoto email" src="./resources/emailicon.png" alt="image of an email"></div>
+        </div>`
   );
   $(".right").html(
     `  <div class="contactPhotoContainer"><img class="largeContactPhoto" src="./resources/contactPhoto.jpg" alt="photo looking up a glass dome that I took in Vancouver"> </div>
   </div>`
   );
 
+  // scrollTo(".content");
   $(".content").toggleClass("contactPage", true);
+
+  $(".contact-github").on("click", function() {
+    console.log("github clicked");
+    window.open("https://www.github.com/trevjnels", "_blank");
+  });
+  $(".contact-linkedin").on("click", function() {
+    console.log("linkedin clicked");
+    window.open("https://www.linkedin.com/in/trevorjohnnels/", "_blank");
+  });
+  $(".contact-emailMe").on("click", function() {
+    console.log("email-me clicked");
+    window.open(
+      "mailto:trevorjohnnels@gmail.com?Subject=Found your portfolio site and wanted to get in contact",
+      "_self"
+    );
+  });
+  $(".navUL").toggleClass("contactNavUL", true);
 };
 const photoPageRender = function() {
-  var result = "";
+  var result = `<div class="photo-container">`;
+  var counter = 10;
   let indexes = arrayMixer(photoArray);
-  for (let i = 0; i < 40; ++i) {
+  for (let i = 0; i < 200; ++i) {
+    // if (counter === 10) {
+    //   result += `<div class='row'>`;
+    // }
     result += `<img class="photoPagePhoto" src="${
       photoArray[indexes[i % indexes.length]]
-    }"`;
+    }">`;
+    // counter--;
+    // if (counter === 1) {
+    //   result += `</div>`;
+    //   counter = 10;
+    // }
   }
+  result += `</div>`;
 
-  console.log(result);
-  $("*").html(
-    `<div class="photoPage">${result}</div>
+  $("body").html(
+    `<div class="photoPage">${result}
   `
   );
+
+  $(".photoPage").on("click", function() {
+    window.location = "./index.html";
+    scrollTo(".main");
+  });
 };
 
 const arrayMixer = function(array) {
@@ -155,11 +201,28 @@ const borderFiller = function(array, num) {
   $(".photoBorder.header").html(borderOutPutBottom);
 };
 
+const scrollTo = function(elem) {
+  var viewportHeight = $(window).height();
+  var elemHeight = $(elem).height();
+  var elemTop = $(elem).offset().top;
+  var scrollIt = elemTop - (viewportHeight - elemHeight) / 2;
+  console.log(`scrollTo is running`);
+
+  $(window).scrollTop(scrollIt);
+};
+
+const resizeListner = function() {
+  $(window).resize(function() {
+    console.log("window resized");
+    scrollTo(".main");
+  });
+};
+
 const autoRunner = function() {
-  // scrollTo("footer");
   navHandler();
   borderFiller(photoArray, 10);
-  // noPlaceLikeHome();
+  noPlaceLikeHome();
+  resizeListner();
   // contactRender();
   // photoPageRender();
   // noPlaceLikeHome();
