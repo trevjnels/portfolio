@@ -2,6 +2,14 @@
   display: flex;
 }
 
+li.nav-option-js:hover {
+  text-shadow: 3px 3px 6px blue;
+}
+
+li.nav-option-js:active {
+  text-shadow: 3px 3px 6px red;
+}
+
 .noDisplay {
   display: none;
 }
@@ -28,7 +36,7 @@ h2.Summary {
 .nav-option-js {
   color: black;
   text-shadow: 1px 1px 1px black;
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 
 .mission-summary {
@@ -224,6 +232,10 @@ ul {
     display: none;
   }
 
+  .mission-summary {
+    padding-left: 3vw;
+  }
+
   .workImage {
     width: 50vw;
   }
@@ -344,8 +356,8 @@ ul {
     margin-top: 2vh;
   }
 
-  .content {
-    padding-left: 2vh;
+  .mission-summary {
+    padding-left: 10vw;
   }
 
   .left {
@@ -449,6 +461,10 @@ ul {
 @media screen and (min-width: 768px) {
   * {
     /* background-color: lightgreen; */
+  }
+
+  .mission-summary {
+    padding-left: 20vh;
   }
 
   .main.mainProjects {
