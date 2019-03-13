@@ -2,6 +2,11 @@
   display: flex;
 }
 
+.skills {
+  color: gray;
+  text-shadow: .5px .5px 1px black;
+}
+
 .projectLink>a:hover {
   text-shadow: 2px 2px 3px gray;
 }
@@ -226,7 +231,7 @@ body {
 }
 
 .workImage:hover {
-  width: 40vw;
+  width: 60vw;
   height: auto;
 }
 
