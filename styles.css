@@ -92,12 +92,15 @@ h2.Summary {
   overflow-y: scroll;
 }
 
+.leftProject>h1 {
+  font-size: 1.5em;
+}
+
 .topProject {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
-  font-size: 1.5em;
   font-weight: bold;
 }
 
@@ -277,6 +280,10 @@ ul {
 }
 
 @media screen and (max-width: 400px) {
+  li.projectLink {
+    font-size: 1.2em
+  }
+
   .right {
     display: none;
   }
@@ -427,6 +434,8 @@ ul {
 
   ul.projectUL {
     margin-top: 270px;
+    padding-left: 0;
+    font-size: 1.4em
   }
 
   .summaryNav {
@@ -510,6 +519,11 @@ ul {
 @media screen and (min-width: 768px) {
   * {
     /* background-color: lightgreen; */
+  }
+
+  .workImage:hover {
+    width: 40vw;
+    height: auto;
   }
 
   .mission-summary {
