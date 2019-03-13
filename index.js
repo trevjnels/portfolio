@@ -11,40 +11,52 @@ const classResetter = function() {
   $(".left").toggleClass("summaryLeft", false);
   $(".left").toggleClass("mainProjects", false);
   $(".main").toggleClass("mainProjects", false);
+  $("body").toggleClass("photoPageBody", false);
 };
 
 const navHandler = function() {
   console.log("navHandler is running");
 
+  $("button").keydown(function(event) {
+    if (event.keyCode === 13) {
+      console.log("ENTER!");
+      var text = $(event.target)
+        .text()
+        .trim();
+      event.stopPropagation();
+      navEvent(text);
+    }
+  });
+
   $(".nav-option-js").on("click", function(event) {
+    event.preventDefault();
     var text = $(event.target)
       .text()
       .trim();
-
-    classResetter();
-
-    //removes any previously attached classes to elements to prevent css leakage
-    if (text !== "Photography") {
-      if (text === "trevjnels") {
-        noPlaceLikeHome();
-        console.log(text);
-        scrollTo(".main");
-      } else if (text === "Projects") {
-        projectsRender(projectsArray);
-        console.log(text);
-        scrollTo(".main");
-      } else if (text === "Contact") {
-        contactRender();
-        scrollTo(".main");
-        console.log(text);
-      }
-    } else {
-      photoPageRender();
-      alert(
-        "Here are more of my photos, click anywhere on the screen to return home."
-      );
-    }
+    //removes any previously attached classes to elements to prevent css leakag
+    navEvent(text);
   });
+};
+
+const navEvent = function(text) {
+  classResetter();
+  if (text !== "Photography") {
+    if (text === "trevjnels") {
+      noPlaceLikeHome();
+      console.log(text);
+      scrollTo(".main");
+    } else if (text === "Projects") {
+      projectsRender(projectsArray);
+      console.log(text);
+      scrollTo(".main");
+    } else if (text === "Contact") {
+      contactRender();
+      scrollTo(".main");
+      console.log(text);
+    }
+  } else {
+    photoPageRender();
+  }
 };
 
 const noPlaceLikeHome = function() {
@@ -66,7 +78,7 @@ const projectsRender = function(array) {
   array.forEach(function(elem) {
     leftOutput += `<div class=" left project"><div class="topProject"><div class="leftProject"<h1 class='projectTitle'>${
       elem.name
-    }</h1><img class='workImage' src='${
+    }</h1><img alt='${elem.name} project screenshot'class='workImage' src='${
       elem.photoSRC
     }'></div><div class="rightProject"><ul class='projectUL'><li class='projectLink'><a href='${
       elem.github
@@ -100,9 +112,9 @@ const contactRender = function() {
   $(".left").html(
     `
         <div class="contactLinkForm">
-          <div class="contactLink contact-github"><img class="contactPhoto github" src="./resources/githublogo.png" alt="github logo"></div>
-          <div class="contactLink contact-linkedin"><img  class="contactPhoto link"src="./resources/linkedin-logo.png" alt="linkedin logo"></div>
-          <div class="contactLink contact-emailMe"><img class="contactPhoto email" src="./resources/emailicon.png" alt="image of an email"></div>
+          <button class="contactGitHub"><div class="contactLink contact-github"><img class="contactPhoto github" src="./resources/githublogo.png" alt="github logo"></div></button>
+          <button class="contactLinkedin"><div class="contactLink contact-linkedin"><img  class="contactPhoto link"src="./resources/linkedin-logo.png" alt="linkedin logo"></div></button>
+          <button class="contactEmail"><div class="contactLink contact-emailMe"><img class="contactPhoto email" src="./resources/emailicon.png" alt="image of an email"></div></button>
         </div>`
   );
   $(".right").html(
@@ -128,9 +140,46 @@ const contactRender = function() {
       "_self"
     );
   });
+  //
+  // $("button").keydown(function(event) {
+  //   if (event.keyCode === 13) {
+  //     console.log("ENTER!");
+  //     var text = $(event.target)
+  //       .text()
+  //       .trim();
+  //     event.stopPropagation();
+  //     navEvent(text);
+  //   }
+  // });
+
+  $(".contactGitHub").keydown(function(event) {
+    event.stopPropagation();
+    if (event.keyCode === 13) {
+      console.log("github entered");
+      window.open("https://www.github.com/trevjnels", "_blank");
+    }
+  });
+  $(".contactLinkedin").keydown(function(event) {
+    event.stopPropagation();
+    if (event.keyCode === 13) {
+      console.log("linkedin entered");
+      window.open("https://www.linkedin.com/in/trevorjohnnels/", "_blank");
+    }
+  });
+  $(".contactEmail").keydown(function(event) {
+    event.stopPropagation();
+    if (event.keyCode === 13) {
+      console.log("email-me entered");
+      window.open(
+        "mailto:trevorjohnnels@gmail.com?Subject=Found your portfolio site and wanted to get in contact",
+        "_self"
+      );
+    }
+  });
   $(".navUL").toggleClass("contactNavUL", true);
 };
 const photoPageRender = function() {
+  $("body").toggleClass("photoPageBody", true);
   var result = `<div class="photo-container">`;
   var counter = 10;
   let indexes = arrayMixer(photoArray);
@@ -138,9 +187,10 @@ const photoPageRender = function() {
     // if (counter === 10) {
     //   result += `<div class='row'>`;
     // }
-    result += `<img class="photoPagePhoto" src="${
-      photoArray[indexes[i % indexes.length]]
-    }">`;
+    var photo = photoArray[indexes[i % indexes.length]];
+    result += `<img class="photoPagePhoto" src="${photo.url}" alt=${
+      photo.alt
+    }>`;
     // counter--;
     // if (counter === 1) {
     //   result += `</div>`;
@@ -156,7 +206,13 @@ const photoPageRender = function() {
 
   $(".photoPage").on("click", function() {
     window.location = "./index.html";
-    scrollTo(".main");
+  });
+
+  $(".photoPageBody").keydown(function(event) {
+    if (event.keyCode === 13) {
+      console.log("ENTER!");
+      window.location = "./index.html";
+    }
   });
 };
 
@@ -184,16 +240,18 @@ const borderFiller = function(array, num) {
   // let length = array.length;
   let i = 0;
   indexesTop.forEach(function(index) {
-    var photoSource = array[index];
+    var photoSource = array[index].url;
+    var photoAlt = array[index].alt;
 
-    borderOutPutTop += `<img class='photoB photoB-${i}' src='${photoSource}' alt='photo from my instagram'>`;
+    borderOutPutTop += `<img class='photoB photoB-${i}' src='${photoSource}' alt='${photoAlt}'>`;
     i++;
   });
   i = 0;
   indexesBottom.forEach(function(index) {
-    var photoSource = array[index];
+    var photoSource = array[index].url;
+    var photoAlt = array[index].alt;
 
-    borderOutPutBottom += `<img class='photoB photoB-${i}' src='${photoSource}' alt='photo from my instagram'>`;
+    borderOutPutBottom += `<img class='photoB photoB-${i}' src='${photoSource}' alt='${photoAlt}'>`;
     i++;
   });
   console.log("borderFiller is running");

@@ -1,21 +1,60 @@
 var photoArray = [
-  "./resources/instapix/Bridge.jpg",
-  "./resources/instapix/dirtyJerz.jpg",
-  "./resources/instapix/sideOfATruck.jpg",
-  "./resources/instapix/Drummer.jpg",
-  "./resources/instapix/dogFlower.jpg",
-  "./resources/instapix/tripCircle.jpg",
-  "./resources/instapix/blackAndWhiteCircle.jpg",
-  "./resources/instapix/hole.jpg",
-  "./resources/instapix/underTheBridge.jpg",
-  "./resources/instapix/buildingZoom.jpg",
-  "./resources/instapix/library.jpg",
-  "./resources/instapix/upBuildingBW.jpg",
-  "./resources/instapix/couch.jpg",
-  "./resources/instapix/marshmellowTree.jpg",
-  "./resources/instapix/whiteBlownTree.jpg",
-  "./resources/instapix/counterReflection.jpg",
-  "./resources/instapix/rockCreek.jpg"
+  {
+    url: "./resources/instapix/Bridge.jpg",
+    alt: "looking at a bike bridge in ny"
+  },
+  { url: "./resources/instapix/dirtyJerz.jpg", alt: "photo of jersey" },
+  {
+    url: "./resources/instapix/sideOfATruck.jpg",
+    alt: "frost on a the side of a truck"
+  },
+  {
+    url: "./resources/instapix/Drummer.jpg",
+    alt: "looking down at a drummer from the highline"
+  },
+  {
+    url: "./resources/instapix/dogFlower.jpg",
+    alt: "a picture of my puppy lookin at the woods"
+  },
+  {
+    url: "./resources/instapix/tripCircle.jpg",
+    alt: "trippy self portrate looking into a circular mirror"
+  },
+  {
+    url: "./resources/instapix/blackAndWhiteCircle.jpg",
+    alt: "self portrate loookingi nto miror"
+  },
+  {
+    url: "./resources/instapix/hole.jpg",
+    alt: "looking at the chase tower in NYC "
+  },
+  {
+    url: "./resources/instapix/underTheBridge.jpg",
+    alt: "looking at the PA NY border under a bridge"
+  },
+  {
+    url: "./resources/instapix/buildingZoom.jpg",
+    alt: "shot of the side of a skyscraper"
+  },
+  { url: "./resources/instapix/library.jpg", alt: "a photo of the subway" },
+  {
+    url: "./resources/instapix/upBuildingBW.jpg",
+    alt: "looking up a skyscraper in black and white"
+  },
+  {
+    url: "./resources/instapix/couch.jpg",
+    alt: "a dirty couch by itself in a warehouse"
+  },
+  { url: "./resources/instapix/marshmellowTree.jpg", alt: "snow caked tree" },
+  { url: "./resources/instapix/whiteBlownTree.jpg", alt: "snow caked tree" },
+  {
+    url: "./resources/instapix/counterReflection.jpg",
+    alt: "skyscraper photo"
+  },
+  {
+    url: "./resources/instapix/rockCreek.jpg",
+    alt: "a small waterfall rushing over worn rocks"
+  }
   // "./resources/Louvor.jpg"
 ];
 

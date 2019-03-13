@@ -2,12 +2,56 @@
   display: flex;
 }
 
+.projectLink>a:hover {
+  text-shadow: 2px 2px 3px gray;
+}
+
+.projectLink>a:visited {
+  color: green;
+}
+
+.projectLink>a:focus {
+  color: blue;
+}
+
+.projectLink>a {
+  color: black;
+}
+
+li.nav-option-js>:focus {
+  text-shadow: 3px 3px 6px blue;
+}
+
 li.nav-option-js:hover {
   text-shadow: 3px 3px 6px blue;
 }
 
 li.nav-option-js:active {
   text-shadow: 3px 3px 6px red;
+}
+
+.contactLinkForm>button {
+  border: none;
+  padding: 0;
+}
+
+.ulNavNav>button {
+  border: none;
+  padding: 0;
+  margin-bottom: 1vh;
+  height: 50px;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button:active, button:hover {
+  outline: 0;
+}
+
+.ulNavNav {
+  display: flex;
+  flex-direction: column;
 }
 
 .noDisplay {
