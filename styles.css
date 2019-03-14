@@ -40,6 +40,10 @@ li.nav-option-js:active {
   text-shadow: 3px 3px 6px red;
 }
 
+button {
+  background-color: white;
+}
+
 .contactLinkForm>button {
   border: none;
   padding: 0;
@@ -47,9 +51,9 @@ li.nav-option-js:active {
 
 .ulNavNav>button {
   border: none;
+  border-radius: 10px;
   padding: 0;
-  margin-bottom: 1vh;
-  height: 50px;
+  height: 9vh;
   font-size: 1em;
   font-weight: 400;
   font-family: 'Quicksand', sans-serif;
@@ -425,12 +429,7 @@ ul {
     margin-top: 2vh;
   }
 
-  .mission-summary {
-    padding-left: 10vw;
-  }
-
   .left {
-    width: 40vw;
     height: auto;
   }
 
@@ -468,7 +467,7 @@ ul {
   }
 
   .main {
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: space-evenly;
   }
 
@@ -494,6 +493,10 @@ ul {
 
   .content.contactPage {
     flex-direction: row;
+  }
+
+  .content.flex-container {
+    width: 90vw;
   }
 
   .content {
@@ -537,10 +540,6 @@ ul {
   .workImage:hover {
     width: 40vw;
     height: auto;
-  }
-
-  .mission-summary {
-    padding-left: 20vh;
   }
 
   .main.mainProjects {

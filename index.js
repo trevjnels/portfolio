@@ -41,6 +41,7 @@ const navHandler = function() {
 const navEvent = function(text) {
   classResetter();
   if (text !== "Photography") {
+    borderFiller(photoArray, 10);
     if (text === "trevjnels") {
       noPlaceLikeHome();
       console.log(text);
@@ -62,7 +63,7 @@ const navEvent = function(text) {
 
 const noPlaceLikeHome = function() {
   $(".left")
-    .html(`<div class="mission-summary"><h2 class="Summary">A repressed engineer formerally stuck in a enterprise-salesperson's life</h2><p>I am an obsessive and relentless tinkerer and have an unlimited thirst for new information with a strong appreciate for symmetry balance and natural patterns. I read thoroughly too much about the world and like to get caught up in the details. I am a mostly self-taught developer with an enterprise sales background. That said I was destined for engineering as child but was thrown off track. I had all the signs of a young steampunk Jedi: setting up the family computer at 5yo, becoming a mechanical pencil modder in 1st grade, spending much of my childhood solo in my dad’s workshop in the basement, and leading my physics/geometry/math
+    .html(`<div class="mission-summary"><h2 class="Summary">A repressed engineer formerally stuck in a enterprise-salesperson's life</h2><p>I am an obsessive and relentless tinkerer and have an unlimited thirst for new information with a strong appretiation for symmetry balance and natural patterns. I read thoroughly too much about the world and like to get caught up in the details. I am a mostly self-taught developer with an enterprise sales background. That said I was destined for engineering as child but was thrown off track. I had all the signs of a young steampunk Jedi: setting up the family computer at 5yo, becoming a mechanical pencil modder in 1st grade, spending much of my childhood solo in my dad’s workshop in the basement, and leading my physics/geometry/math
     classes without even trying. </p><p>At the ripe age of 12 on a sunny afternoon, I met a mechanical engineer - well a whole bunch of them - in a hot tub in Disney World. They were attending an industry conference. This downtrodden and dissatisfied man told me that engineering was a miserable pursuit and to find greener pastures. At that point I stoped focusing on building. I’ve now seen what its like to do what you do not love for money, Now I'm fixing that and building.I am not actively looking for a job at the moment. My true goal is solopreneurship.
     When not coding, I'm summiting mountains and if(winter){c(snowboarding down them)};.</p></div>`);
   $(".right")
@@ -274,6 +275,7 @@ const scrollTo = function(elem) {
 
 const resizeListner = function() {
   $(window).resize(function() {
+    borderFiller(photoArray, 10);
     console.log("window resized");
     scrollTo(".main");
   });
