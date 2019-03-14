@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.nav-option-js {
+  background-color: white;
+}
+
 .skills {
   color: gray;
   text-shadow: .5px .5px 1px black;
