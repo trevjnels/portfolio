@@ -52,9 +52,9 @@ button {
 .ulNavNav>button {
   border: none;
   border-radius: 10px;
-  padding: 0;
+  padding: 1vw;
   height: 9vh;
-  font-size: 1em;
+  font-size: .8em;
   font-weight: 400;
   font-family: 'Quicksand', sans-serif;
 }
@@ -65,7 +65,7 @@ button:active, button:hover {
 
 .ulNavNav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .noDisplay {
@@ -157,7 +157,7 @@ h2.Summary {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 90vh;
+  height: 80vh;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -534,6 +534,24 @@ ul {
 @media screen and (min-width: 768px) {
   * {
     /* background-color: lightgreen; */
+  }
+
+  .ulNavNav>button {
+    border: none;
+    border-radius: 10px;
+    height: 9vh;
+    font-size: .85em;
+    font-weight: 400;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  button:active, button:hover {
+    outline: 0;
+  }
+
+  .ulNavNav {
+    display: flex;
+    flex-direction: column;
   }
 
   .content.flex-container {
