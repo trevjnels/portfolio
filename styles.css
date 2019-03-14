@@ -4,7 +4,6 @@
 
 .nav-option-js {
   background-color: white;
-  z-index: 30;
 }
 
 .skills {
@@ -236,6 +235,7 @@ body {
 
 .ulNavNav {
   padding-left: 0;
+  height: 10vh;
 }
 
 .workImage {
@@ -339,14 +339,11 @@ ul {
   }
 
   .summaryNav {
-    height: 15vw;
+    height: 30vw;
     display: flex;
-    align-items: flex-start;
     /* background-color: blue; */
-    align-self: flex-end;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10%;
   }
 
   .profPic {
@@ -535,6 +532,10 @@ ul {
 @media screen and (min-width: 768px) {
   * {
     /* background-color: lightgreen; */
+  }
+
+  .ulNavNav {
+    height: auto;
   }
 
   .ulNavNav>button {
