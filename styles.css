@@ -339,6 +339,7 @@ ul {
   }
 
   .summaryNav {
+    height: 15vw;
     display: flex;
     align-items: flex-start;
     /* background-color: blue; */
