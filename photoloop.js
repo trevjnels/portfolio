@@ -71,7 +71,7 @@ var projectsArray = [
   {
     name: "Portfolio site",
     description:
-      "This is the site you are currently viewing. This is the first front-end work I've made that I'm actually proud of. It came after the quiz app and gave me a tough fight. I've gotten confident with backend work and ignored frontend and did not realize how devistatingly frustrating it can get. Some of the highlights of this app is that the app always recenters when you change a page, or resize the window. I've also added a small photo gallary. Both the gallary and borders and randomized everytime the page reloads.",
+      "This is the site you are currently viewing. This is the first front-end work I've made that I'm actually proud of. I've gotten confident with backend work and ignored frontend and did not realize how devistatingly frustrating it can get. Overall I'm happy with the outcome and I'm sure I'll improve it and refactor. One special highlight is that both of the borders are randomized everytime  the screen is resized (try it) or whenver the user interacts with the nav bar.",
     github: "https://github.com/trevjnels/portfolio",
     live: "https://trevjnels.github.io/portfolio/",
     photoSRC: "./resources/portfolioAppPic.png",
