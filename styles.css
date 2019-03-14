@@ -281,7 +281,15 @@ ul {
 
 @media screen and (max-width: 400px) {
   li.projectLink {
-    font-size: 1.2em
+    font-size: 1.2em;
+  }
+
+  li.nav-option-js {
+    font-size: 1.3em;
+  }
+
+  .ulNavNav>button {
+    height: 1.3em;
   }
 
   .right {
