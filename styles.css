@@ -439,7 +439,6 @@ ul {
 
   .main {
     display: flex;
-    flex-direction: column;
     padding-left: 2%;
     padding-right: 2%;
   }
@@ -537,12 +536,26 @@ ul {
     /* background-color: lightgreen; */
   }
 
+  .content.flex-container {
+    width: 80vw;
+  }
+
+  .navUL {
+    width: 30vw;
+  }
+
   .workImage:hover {
     width: 40vw;
     height: auto;
   }
 
   .main.mainProjects {
+    flex-direction: row;
+    width: 100vw;
+    overflow-x: none;
+  }
+
+  .main {
     flex-direction: row;
     width: 100vw;
     overflow-x: none;
@@ -576,7 +589,7 @@ ul {
   }
 
   .main {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .summaryNav {
