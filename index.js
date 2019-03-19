@@ -40,20 +40,22 @@ const navHandler = function() {
 
 const navEvent = function(text) {
   classResetter();
-  if (text !== "Photography") {
+  var lowtext = text.toLowerCase();
+  if (lowtext !== "photography") {
     borderFiller(photoArray, 10);
-    if (text === "trevjnels") {
+
+    if (lowtext === "trevjnels") {
       noPlaceLikeHome();
-      console.log(text);
+      console.log(lowtext);
       scrollTo(".main");
-    } else if (text === "Projects") {
+    } else if (lowtext === "projects") {
       projectsRender(projectsArray);
-      console.log(text);
+      console.log(lowtext);
       scrollTo(".main");
-    } else if (text === "Contact") {
+    } else if (lowtext === "contact") {
       contactRender();
       scrollTo(".main");
-      console.log(text);
+      console.log(lowtext);
     }
   } else {
     photoPageRender();
