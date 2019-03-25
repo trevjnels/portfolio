@@ -76,6 +76,15 @@ var projectsArray = [
     live: "https://trevjnels.github.io/portfolio/",
     photoSRC: "./resources/portfolioAppPic.png",
     skillsUsed: "JQuery, ECMAScript5, CSS, HTML, A11Y"
+  },
+  {
+    name: "NationalParks API Project",
+    description:
+      "I've done code-alongs before, accessing APIs but this is my first from-scratch async/api app. The styling is strange but also represents a breakthrough for me. I got sick of creating the same boilerplate for my jQuery projects with flexbox so I made a starting point called starterkit. I'll be making a react version soon. This app will provide you with results of national parks for specific states selected.",
+    github: "https://github.com/trevjnels/nationalParksNearMe",
+    live: "https://trevjnels.github.io/nationalParksNearMe/",
+    photoSRC: "./resources/nationalParksAppPic.png",
+    skillsUsed: "JQuery, ECMAScript5, CSS, HTML, A11Y, API GET Requests"
   }
 ];
 
